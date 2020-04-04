@@ -5,13 +5,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HackTheCrisis.Models;
+using HackTheCrisis.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace HackTheCrisis.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public HomeController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
+            var demands = _context.Demands.Include(x => x.HealthCareUnit).ToList();
+
             return View();
         }
 
