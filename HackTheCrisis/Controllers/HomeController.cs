@@ -37,7 +37,14 @@ namespace HackTheCrisis.Controllers
         {
             return View();
         }
-
+        public IActionResult FAQ()
+        {
+            return View();
+        }
+        public IActionResult Legal()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
