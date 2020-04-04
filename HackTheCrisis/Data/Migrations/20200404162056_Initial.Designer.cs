@@ -4,14 +4,16 @@ using HackTheCrisis.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HackTheCrisis.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200404162056_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,12 +27,9 @@ namespace HackTheCrisis.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CreatedDate");
+                    b.Property<int?>("HealthCareUnitID");
 
-                    b.Property<int>("HealthCareUnitID");
-
-                    b.Property<string>("Item")
-                        .IsRequired();
+                    b.Property<string>("Item");
 
                     b.Property<int>("Quantity");
 
@@ -49,11 +48,9 @@ namespace HackTheCrisis.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("UnitName")
-                        .IsRequired();
+                    b.Property<string>("UnitName");
 
-                    b.Property<string>("UnitType")
-                        .IsRequired();
+                    b.Property<string>("UnitType");
 
                     b.HasKey("HealthCareUnitID");
 
@@ -229,8 +226,7 @@ namespace HackTheCrisis.Data.Migrations
                 {
                     b.HasOne("HackTheCrisis.Models.HealthCareUnit", "HealthCareUnit")
                         .WithMany("Demands")
-                        .HasForeignKey("HealthCareUnitID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("HealthCareUnitID");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
