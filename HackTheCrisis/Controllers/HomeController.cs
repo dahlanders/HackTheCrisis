@@ -32,29 +32,29 @@ namespace HackTheCrisis.Controllers
 
         public IActionResult Index()
         {
-            var searchHelper = new SearchHelper(_context);
-            var demands = searchHelper.GetDemands(5);
+            //var searchHelper = new SearchHelper(_context);
+            //var demands = searchHelper.GetDemands(5);
 
-            var searchResultViewModel = new List<SearchResultViewModel>();
+            //var searchResultViewModel = new List<SearchResultViewModel>();
 
-            // Populate the search view model
-            foreach (var demand in demands)
-            {
-                searchResultViewModel.Add(
-                    new SearchResultViewModel()
-                    {
-                        Organization = demand.HealthCareUnit.UnitName,
-                        Item = demand.Item,
-                        Quantity = demand.Quantity,
-                        QuantityUnit = "st",
-                        Location = "Plats saknas",
-                        DeliveryDate = demand.WhenDoINeedIt,
-                        CreatedDate = demand.CreatedDate,
-                        HelpType = HelpType.Needs
-                    });
-            }
+            //// Populate the search view model
+            //foreach (var demand in demands)
+            //{
+            //    searchResultViewModel.Add(
+            //        new SearchResultViewModel()
+            //        {
+            //            Organization = demand.HealthCareUnit.UnitName,
+            //            Item = demand.Item,
+            //            Quantity = demand.Quantity,
+            //            QuantityUnit = "st",
+            //            Location = "Plats saknas",
+            //            DeliveryDate = demand.WhenDoINeedIt,
+            //            CreatedDate = demand.CreatedDate,
+            //            HelpType = HelpType.Needs
+            //        });
+            //}
 
-            return View(searchResultViewModel);
+            return View();
         }
 
         public IActionResult About()
@@ -91,6 +91,10 @@ namespace HackTheCrisis.Controllers
             return View();
         }
         public IActionResult Legal()
+        {
+            return View();
+        }
+        public IActionResult HealthCareNeed​()
         {
             return View();
         }
