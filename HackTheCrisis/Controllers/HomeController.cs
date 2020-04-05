@@ -31,8 +31,8 @@ namespace HackTheCrisis.Controllers
 
         public IActionResult Index()
         {
-            var demands = _context.Demands.ToList();
-           
+            var demands = _context.Demands.Include(x => x.HealthCareUnit).ToList();
+            
             return View();
         }
 

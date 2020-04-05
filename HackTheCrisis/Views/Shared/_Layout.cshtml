@@ -26,10 +26,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">HackTheCrisis</a>
+
+                @*<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">HackTheCrisis</a>*@
+                <div class="industrial-remix-logo"></div>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav navbar-right">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
@@ -37,7 +39,7 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="FAQ">FAQ</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Legal">Legal</a></li>
                 </ul>
-                <partial name="_LoginPartial" />
+                @*<partial name="_LoginPartial" />*@
             </div>
         </div>
     </nav>
@@ -75,21 +77,21 @@
 
     @RenderSection("Scripts", required: false)
     <!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(["setCookieDomain", "*.industrialremix.se"]);
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//stats.tba.nu/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '10']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="//stats.tba.nu/matomo.php?idsite=10&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Matomo Code -->
+    <script type="text/javascript">
+        var _paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(["setCookieDomain", "*.industrialremix.se"]);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "//stats.tba.nu/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '10']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+    <noscript><p><img src="//stats.tba.nu/matomo.php?idsite=10&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+    <!-- End Matomo Code -->
 </body>
 </html>

@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Assets\Logo Industrial REMIX v1.svg" />
+    <None Include="wwwroot\Assets\Logo Industrial REMIX.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Azure.Directory" Version="1.0.3" />
     <PackageReference Include="Lucene.Net" Version="4.8.0-beta00007" />
     <PackageReference Include="Lucene.Net.Analysis.Common" Version="4.8.0-beta00007" />

@@ -1,4 +1,13 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+﻿@font-face {
+    font-family: 'avenirnextltpro-regular';
+    src: url('../assets/fonts/avenirnextltpro-regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'avenirnextltpro-bold';
+    src: url('../assets/fonts/avenirnextltpro-bold.otf') format('opentype');
+}
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
     padding-top: 50px;
@@ -34,4 +43,76 @@ body {
     .carousel-caption {
         display: none;
     }
+
+    .body-content {
+        margin-top: 50px;
+    }
+
+    .industrial-remix-logo {
+        width: 150px;
+        height: 123px;
+        background-size: 150px 123px !important;
+        top: -20px;
+        left: 15px;
+    }
+
 }
+
+/* Only apply custom site settings to the navigation for desktop */
+@media screen and (min-width: 767px) {
+
+    .navbar-collapse {
+        display: flex;
+        width: inherit;
+    }
+
+    .navbar {
+        min-height: 100px;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .navbar-nav {
+        justify-content: flex-start;
+        display: flex;
+        flex-grow: 2;
+    }
+
+    .navbar-right {
+        justify-content: flex-end;
+        display: flex;
+    }
+
+    .industrial-remix-logo {
+        width: 200px;
+        height: 164px;
+        background-size: 200px 164px !important;
+        top: 4px;
+    }
+
+    .body-content {
+        margin-top: 100px;
+    }
+}
+
+.industrial-remix-logo {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    text-indent: -9999px;
+    /*width: 200px;
+    height: 164px;*/
+    background: url('../assets/logo industrial remix v1.svg');
+    /*background-size: 200px 164px;*/
+    /*top: 4px;*/
+}
+
+.navbar-inverse {
+    background-color: #2a6720;
+    border-color: #2a6720;
+}
+
+    .navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
+        color: #fff;
+        font-family: 'avenirnextltpro-bold';
+    }
