@@ -13,56 +13,55 @@ namespace HackTheCrisis.Data
         {
             context.Database.EnsureCreated();
 
-            // Look for any demands
-            if (context.Demands.Any())
-            {
-                return;   // DB has been seeded
-            }
+            var seed = false;
+
+            if (!seed)
+                return; // DB has been seeded
 
             // Add health care unit
             var allDemands = context.Demands.ToList();
             var allHealthCareUnits = context.HealthCareUnits.ToList();
 
-            var testUnitName = "Lucas vårdcentral";
-            var testUnit = context.HealthCareUnits.FirstOrDefault(x => x.UnitName == testUnitName);
 
-            // If the test health care unit doesn't exist
-            if (testUnit == null)
+            var molnlyckeHealthCareUnit = new HealthCareUnit()
             {
-                var healthCareUnit = new HealthCareUnit()
-                {
-                    UnitName = testUnitName,
-                    UnitType = "Primärvård"
-                };
+                UnitName = "Mölnlycke vårdcentral",
+                UnitType = "Vårdcentral"
+            };
 
-                context.HealthCareUnits.Add(healthCareUnit);
-                context.SaveChanges();
-            }
+            var sosHealthCareUnit = new HealthCareUnit()
+            {
+                UnitName = "SÖS",
+                UnitType = "Primärvård"
+            };
 
-
-            // Add demand
+            context.HealthCareUnits.Add(molnlyckeHealthCareUnit);
+            context.HealthCareUnits.Add(sosHealthCareUnit);
+            context.SaveChanges();
+            
             var demands = context.Demands.Include(o => o.HealthCareUnit).ToList();
 
-            var demandPotatos = new Demand()
+             // Add demands
+            var demandMunskydd = new Demand()
             {
-                Item = "Säck potatis",
-                Quantity = 10,
-                WhenDoINeedIt = DateTime.Now.AddDays(10),
+                Item = "Munskydd",
+                Quantity = 300,
+                WhenDoINeedIt = DateTime.Now,
                 CreatedDate = DateTime.Now,
-                HealthCareUnit = testUnit,
+                HealthCareUnit = molnlyckeHealthCareUnit,
             };
 
-            var demandSpace = new Demand()
+            var demandRespiratorer = new Demand()
             {
-                Item = "Rymdskepp",
-                Quantity = 3,
+                Item = "Respiratorer",
+                Quantity = 40,
                 WhenDoINeedIt = DateTime.Now.AddDays(30),
-                CreatedDate = DateTime.Now.AddMinutes(10),
-                HealthCareUnit = testUnit,
+                CreatedDate = DateTime.Now.AddMinutes(50),
+                HealthCareUnit = sosHealthCareUnit,
             };
 
-            context.Demands.Add(demandPotatos);
-            context.Demands.Add(demandSpace);
+            context.Demands.Add(demandMunskydd);
+            context.Demands.Add(demandRespiratorer);
             context.SaveChanges();
 
         }

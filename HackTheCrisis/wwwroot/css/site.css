@@ -55,7 +55,6 @@ body {
         top: -20px;
         left: 15px;
     }
-
 }
 
 /* Only apply custom site settings to the navigation for desktop */
@@ -116,3 +115,20 @@ body {
         color: #fff;
         font-family: 'avenirnextltpro-bold';
     }
+
+.btn-orange {
+    color: #fff;
+    background-color: #DE7927;
+    border-color: #C46923;
+}
+
+    .btn-orange:active, .btn-orange.active, .open > .dropdown-toggle.btn-orange {
+        color: #fff;
+        background-color: #DD8A4B;
+        background-image: none;
+        border-color: #C46923;
+    }
+
+.carousel-caption a {
+    font-weight: bold;
+}

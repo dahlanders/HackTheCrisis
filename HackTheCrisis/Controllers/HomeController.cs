@@ -43,8 +43,12 @@ namespace HackTheCrisis.Controllers
                 searchResultViewModel.Add(
                     new SearchResultViewModel()
                     {
-                        Title = demand.Item,
+                        Organization = demand.HealthCareUnit.UnitName,
+                        Item = demand.Item,
                         Quantity = demand.Quantity,
+                        QuantityUnit = "st",
+                        Location = "Plats saknas",
+                        DeliveryDate = demand.WhenDoINeedIt,
                         CreatedDate = demand.CreatedDate
                     });
             }
