@@ -8,7 +8,6 @@ namespace HackTheCrisis.Models
 {
     public class ContactDetails
     {
-        public int ContactDetailsID { get; set; }
         public Address Address { get; set; }
         public int PhoneNumber { get; set; }
         public string Email { get; set; }

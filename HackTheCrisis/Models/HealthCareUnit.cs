@@ -14,7 +14,5 @@ namespace HackTheCrisis.Models
         public string UnitName { get; set; }
         public HeltCareUnitType UnitType { get; set; }
         public string ContactPerson { get; set; }
-
-        public List<Need> Needs { get; set; }
     }
 }
