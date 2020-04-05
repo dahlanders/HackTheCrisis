@@ -4,14 +4,16 @@ using HackTheCrisis.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HackTheCrisis.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200405151904_NewDbModels")]
+    partial class NewDbModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,33 +21,50 @@ namespace HackTheCrisis.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("HackTheCrisis.Models.Address", b =>
+                {
+                    b.Property<int>("AddressID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("City");
+
+                    b.Property<double>("Latitude");
+
+                    b.Property<double>("Longitude");
+
+                    b.Property<int>("PostalCode");
+
+                    b.Property<string>("StreetAddress");
+
+                    b.HasKey("AddressID");
+
+                    b.ToTable("Address");
+                });
+
             modelBuilder.Entity("HackTheCrisis.Models.HealthCareUnit", b =>
                 {
                     b.Property<int>("HealthCareUnitID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("City");
+                    b.Property<int?>("AddressID");
+
+                    b.Property<int>("ContactDetailsID");
 
                     b.Property<string>("ContactPerson");
 
                     b.Property<string>("Email");
 
-                    b.Property<double>("Latitude");
-
-                    b.Property<double>("Longitude");
-
                     b.Property<int>("PhoneNumber");
-
-                    b.Property<int>("PostalCode");
-
-                    b.Property<string>("StreetAddress");
 
                     b.Property<string>("UnitName");
 
                     b.Property<int>("UnitType");
 
                     b.HasKey("HealthCareUnitID");
+
+                    b.HasIndex("AddressID");
 
                     b.ToTable("HealthCareUnits");
                 });
@@ -56,9 +75,11 @@ namespace HackTheCrisis.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("City");
+                    b.Property<int?>("AddressID");
 
                     b.Property<string>("CompanyName");
+
+                    b.Property<int>("ContactDetailsID");
 
                     b.Property<string>("ContactPerson");
 
@@ -66,17 +87,11 @@ namespace HackTheCrisis.Data.Migrations
 
                     b.Property<string>("Email");
 
-                    b.Property<double>("Latitude");
-
-                    b.Property<double>("Longitude");
-
                     b.Property<int>("PhoneNumber");
 
-                    b.Property<int>("PostalCode");
-
-                    b.Property<string>("StreetAddress");
-
                     b.HasKey("IndustrialPartnerID");
+
+                    b.HasIndex("AddressID");
 
                     b.ToTable("IndustrialPartners");
                 });
@@ -294,17 +309,31 @@ namespace HackTheCrisis.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("HackTheCrisis.Models.HealthCareUnit", b =>
+                {
+                    b.HasOne("HackTheCrisis.Models.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressID");
+                });
+
+            modelBuilder.Entity("HackTheCrisis.Models.IndustrialPartner", b =>
+                {
+                    b.HasOne("HackTheCrisis.Models.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressID");
+                });
+
             modelBuilder.Entity("HackTheCrisis.Models.Need", b =>
                 {
                     b.HasOne("HackTheCrisis.Models.HealthCareUnit", "Owner")
-                        .WithMany()
+                        .WithMany("Needs")
                         .HasForeignKey("OwnerHealthCareUnitID");
                 });
 
             modelBuilder.Entity("HackTheCrisis.Models.Offer", b =>
                 {
                     b.HasOne("HackTheCrisis.Models.IndustrialPartner", "Owner")
-                        .WithMany()
+                        .WithMany("Offers")
                         .HasForeignKey("OwnerIndustrialPartnerID");
                 });
 

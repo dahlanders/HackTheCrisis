@@ -60,7 +60,6 @@ p, h1, h2, h3, h4 {
         top: -20px;
         left: 15px;
     }
-
 }
 
 /* Only apply custom site settings to the navigation for desktop */
@@ -121,3 +120,39 @@ p, h1, h2, h3, h4 {
         color: #fff;
         font-family: 'avenirnextltpro-bold';
     }
+
+.btn-orange {
+    color: #fff;
+    background-color: #DE7927;
+    border-color: #C46923;
+}
+
+    .btn-orange:active, .btn-orange.active, .open > .dropdown-toggle.btn-orange {
+        color: #fff;
+        background-color: #DD8A4B;
+        background-image: none;
+        border-color: #C46923;
+    }
+
+.carousel-caption a {
+    font-weight: bold;
+}
+
+.homepage-col h3 {
+    color: #2a6720;
+}
+.recently-added .helpType {
+    color:gray;
+}
+
+.introduction {
+    padding-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 1.3em;
+}
+
+.introduction-important {
+    font-weight: bold;
+}

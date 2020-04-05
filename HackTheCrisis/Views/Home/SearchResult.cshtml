@@ -1,4 +1,9 @@
-﻿@model List<SearchResultViewModel>
+﻿
+@{
+    ViewData["Title"] = "SearchResult";
+}
+
+@model List<SearchResultViewModel>
 @using System.Globalization;
 
 @if (Model != null && Model.Any())
@@ -8,20 +13,24 @@
             <table class="table" id="table">
                 <thead>
                     <tr>
-                        <th>Item</th>
-                        <th>Quantity</th>
-                        <th>Created</th>
+                        <th>Who?</th>
+                        <th>Supply/Needs</th>
+                        <th>How much?</th>
+                        <th>Where?</th>
+                        <th>When?</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in @Model)
                     {
                         <tr>
-                            <td><a href="/">@item.Title</a></td>
-                            <td>@item.Quantity</td>
+                            <td><strong><a href="/">@item.Organization</a></strong></td>
+                            <td><strong>@item.Item</strong></td>
+                            <td>@item.Quantity @item.QuantityUnit</td>
+                            <td>@item.Location</td>
                             <td>
                                 <time datetime="@item.CreatedDate.ToString("yyyy-MM-dd", CultureInfo.CreateSpecificCulture("sv-SE"))">
-                                    Skapad: @item.CreatedDate.ToString("d MMMM yyyy", CultureInfo.CreateSpecificCulture("sv-SE"))
+                                    @item.CreatedDate.ToString("yyyy-MM-dd", CultureInfo.CreateSpecificCulture("sv-SE"))
                                 </time>
                             </td>
                         </tr>

@@ -1,4 +1,4 @@
-﻿@model HackTheCrisis.Models.Demand
+﻿@model HackTheCrisis.Models.Need
 
 @{
     ViewData["Title"] = "Form";
@@ -6,16 +6,21 @@
 
 <h2>Form</h2>
 
-<h4>Demand</h4>
+<h4>Need</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Form">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Item" class="control-label"></label>
-                <input asp-for="Item" class="form-control" />
-                <span asp-validation-for="Item" class="text-danger"></span>
+                <label asp-for="NeedID" class="control-label"></label>
+                <input asp-for="NeedID" class="form-control" />
+                <span asp-validation-for="NeedID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Quantity" class="control-label"></label>
@@ -23,12 +28,22 @@
                 <span asp-validation-for="Quantity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="WhenDoINeedIt" class="control-label"></label>
-                <input asp-for="WhenDoINeedIt" class="form-control" />
-                <span asp-validation-for="WhenDoINeedIt" class="text-danger"></span>
+                <label asp-for="QuantityUnit" class="control-label"></label>
+                <input asp-for="QuantityUnit" class="form-control" />
+                <span asp-validation-for="QuantityUnit" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <label asp-for="DeliveryDate" class="control-label"></label>
+                <input asp-for="DeliveryDate" class="form-control" />
+                <span asp-validation-for="DeliveryDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </form>
     </div>

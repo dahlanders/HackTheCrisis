@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace HackTheCrisis.Models
 {
-    public class HealthCareUnit : ContactDetails
+    public class IndustrialPartner : ContactDetails
     {
         [Key]
-        public int HealthCareUnitID { get; set; }
-        public string UnitName { get; set; }
-        public HeltCareUnitType UnitType { get; set; }
+        public int IndustrialPartnerID { get; set; }
+        public string CorporateIdentityNumber { get; set; }
+        public string CompanyName { get; set; }
         public string ContactPerson { get; set; }
+
     }
 }
