@@ -4,23 +4,24 @@
 {
     <div class="row recently-added">
         <ul class="list-group">
-            @*@foreach (var item in Model)
-        {
-            var helpType = "";
-            if (item.HelpType == HelpType.Needs)
+            @foreach (var item in Model)
             {
-                helpType = "needs";
-            }
-            else
-            {
-                helpType = "can supply";
-            }
+                var helpType = "";
+                if (item.HelpType == HelpType.Needs)
+                {
+                    helpType = "needs";
+                }
+                else
+                {
+                    helpType = "can supply";
+                }
 
-            <li class="list-group-item">
-                <strong>@item.Organization</strong> <span class="helpType">@helpType</span> <strong>@item.Item</strong>
-            </li>
-        }*@
-            <li class="list-group-item">
+                <li class="list-group-item">
+                    <strong>@item.Organization</strong> <span class="helpType">@helpType</span> <strong>@item.Item</strong>
+                </li>
+
+        
+            @*<li class="list-group-item">
                 <strong>Mölnlycke vårdcentral</strong> <span class="helpType">needs</span> <strong>Munskydd</strong>
             </li>
             <li class="list-group-item">
@@ -34,7 +35,9 @@
             </li>
             <li class="list-group-item">
                 <strong>Sahlgrenska Universitetssjukhuset</strong> <span class="helpType">needs</span> <strong>Handsprit</strong>
-            </li>
+            </li>*@
+            
+            }
         </ul>
         <a href="/">Find more...</a>
     </div>

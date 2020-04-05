@@ -9,42 +9,42 @@ namespace HackTheCrisis.Data
 {
     public class DbInitializer
     {
-        //public static void Initialize(ApplicationDbContext context)
-        //{
-        //    context.Database.EnsureCreated();
+        public static void Initialize(ApplicationDbContext context)
+        {
+            context.Database.EnsureCreated();
 
 
-        //    // Look for any demands
-        //    if (context.Demands.Any())
-        //    {
-        //        return;   // DB has been seeded
-        //    }
+            //    // Look for any demands
+            //    if (context.Demands.Any())
+            //    {
+            //        return;   // DB has been seeded
+            //    }
 
             //var seed = false;
 
             //if (!seed)
             //    return; // DB has been seeded
 
-        //    // Add health care unit
-        //    var allDemands = context.Demands.ToList();
-        //    var allHealthCareUnits = context.HealthCareUnits.ToList();
+            //    // Add health care unit
+            //    var allDemands = context.Demands.ToList();
+            //    var allHealthCareUnits = context.HealthCareUnits.ToList();
 
 
-        //    var testUnitName = "Lucas vårdcentral";
-        //    var testUnit = context.HealthCareUnits.FirstOrDefault(x => x.UnitName == testUnitName);
+            //    var testUnitName = "Lucas vårdcentral";
+            //    var testUnit = context.HealthCareUnits.FirstOrDefault(x => x.UnitName == testUnitName);
 
-        //    // If the test health care unit doesn't exist
-        //    if (testUnit == null)
-        //    {
-        //        var healthCareUnit = new HealthCareUnit()
-        //        {
-        //            UnitName = testUnitName,
-        //            UnitType = "Primärvård"
-        //        };
+            //    // If the test health care unit doesn't exist
+            //    if (testUnit == null)
+            //    {
+            //        var healthCareUnit = new HealthCareUnit()
+            //        {
+            //            UnitName = testUnitName,
+            //            UnitType = "Primärvård"
+            //        };
 
-        //        context.HealthCareUnits.Add(healthCareUnit);
-        //        context.SaveChanges();
-        //    }
+            //        context.HealthCareUnits.Add(healthCareUnit);
+            //        context.SaveChanges();
+            //    }
 
 
             //var molnlyckeHealthCareUnit = new HealthCareUnit()
@@ -85,7 +85,7 @@ namespace HackTheCrisis.Data
             //context.HealthCareUnits.Add(molnlyckeHealthCareUnit);
             //context.HealthCareUnits.Add(sosHealthCareUnit);
             //context.SaveChanges();
-            
+
             //var demands = context.Demands.Include(o => o.HealthCareUnit).ToList();
 
             // // Add demands
@@ -111,7 +111,7 @@ namespace HackTheCrisis.Data
             //context.Demands.Add(demandRespiratorer);
             //context.SaveChanges();
 
-        //}
+        }
 
     }
 }

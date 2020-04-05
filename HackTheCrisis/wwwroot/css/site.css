@@ -144,3 +144,12 @@ p, h1, h2, h3, h4 {
 .recently-added .helpType {
     color:gray;
 }
+
+.introduction{
+    padding: 20px;
+    text-align:center;
+}
+
+.introduction-important {
+    font-weight: bold;
+}

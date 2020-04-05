@@ -7,9 +7,10 @@ namespace HackTheCrisis.Models
 {
     public class Offer
     {
-        public EnumOfferType OfferTypes { get; set; }
+        public int OfferID { get; set; }
+        public OfferType OfferTypes { get; set; }
         public string Description { get; set; }
         public IndustrialPartner Owner { get; set; }
-        public EnumIndustrialPartnerType Type { get; set; }
+        public IndustrialPartnerType Type { get; set; }
     }
 }

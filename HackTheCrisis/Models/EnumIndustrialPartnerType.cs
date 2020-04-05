@@ -5,14 +5,11 @@ using System.Threading.Tasks;
 
 namespace HackTheCrisis.Models
 {
-    public class EnumIndustrialPartnerType
+    public enum IndustrialPartnerType
     {
-        public enum IndustrialPartnerType
-        {
-            ManufacturingIndustry,
-            Subcontractor,
-            LogisticsAndTransport,
-            Warehouse,
-        }
+        ManufacturingIndustry,
+        Subcontractor,
+        LogisticsAndTransport,
+        Warehouse,
     }
 }

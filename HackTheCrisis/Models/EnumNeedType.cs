@@ -5,15 +5,12 @@ using System.Threading.Tasks;
 
 namespace HackTheCrisis.Models
 {
-    public class EnumNeedType
+    public enum NeedType
     {
-        public enum NeedType
-        {
-            Munskydd,
-            Visir,
-            Handsprit,
-            Respirator,
-            Other,
-        }
+        Munskydd,
+        Visir,
+        Handsprit,
+        Respirator,
+        Other,
     }
 }
