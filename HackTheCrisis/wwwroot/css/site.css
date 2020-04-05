@@ -14,6 +14,11 @@ body {
     padding-bottom: 20px;
 }
 
+p, h1, h2, h3, h4 {
+    /* Marcus tillägg, för läsbarhet */
+    max-width: 40em;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
