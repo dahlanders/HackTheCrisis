@@ -15,6 +15,7 @@ using Lucene.Net.Store;
 using Lucene.Net.Analysis.Standard;
 using Lucene.Net.Documents;
 using Lucene.Net.Search;
+using HackTheCrisis.Helpers;
 
 namespace HackTheCrisis.Controllers
 {
@@ -31,9 +32,24 @@ namespace HackTheCrisis.Controllers
 
         public IActionResult Index()
         {
-            var demands = _context.Demands.Include(x => x.HealthCareUnit).ToList();
-            
-            return View();
+            var searchHelper = new SearchHelper(_context);
+            var demands = searchHelper.GetDemands(5);
+
+            var searchResultViewModel = new List<SearchResultViewModel>();
+
+            // Populate the search view model
+            foreach (var demand in demands)
+            {
+                searchResultViewModel.Add(
+                    new SearchResultViewModel()
+                    {
+                        Title = demand.Item,
+                        Quantity = demand.Quantity,
+                        CreatedDate = demand.CreatedDate
+                    });
+            }
+
+            return View(searchResultViewModel);
         }
 
         public IActionResult About()

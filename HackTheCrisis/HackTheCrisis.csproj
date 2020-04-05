@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <None Include="wwwroot\Assets\Logo Industrial REMIX v1.svg" />
-    <None Include="wwwroot\Assets\Logo Industrial REMIX.png" />
   </ItemGroup>
 
   <ItemGroup>

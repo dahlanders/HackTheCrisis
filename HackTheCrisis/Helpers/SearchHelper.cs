@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HackTheCrisis.Data;
+using HackTheCrisis.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,6 +10,25 @@ namespace HackTheCrisis.Helpers
 {
     public class SearchHelper
     {
+        private readonly ApplicationDbContext _context;
+
+        public SearchHelper(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public List<Demand> GetDemands(int count)
+        {
+            var demands = _context.Demands.Include(x => x.HealthCareUnit)
+                .OrderByDescending(x => x.CreatedDate);
+
+            var  result = new List<Demand>();
+
+            if(count > 0)
+                result = demands.Take(count).ToList();
+
+            return result;
+        }
     }
 
 
