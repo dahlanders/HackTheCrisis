@@ -32,6 +32,7 @@ namespace HackTheCrisis.Controllers
 
         public IActionResult Index()
         {
+            var needs = _context.Needs.ToList();
             //var searchHelper = new SearchHelper(_context);
             //var demands = searchHelper.GetDemands(5);
 
@@ -54,7 +55,7 @@ namespace HackTheCrisis.Controllers
             //        });
             //}
 
-            return View();
+            return View(/*searchResultViewModel*/);
         }
 
         public IActionResult About()

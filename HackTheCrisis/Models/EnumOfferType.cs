@@ -5,14 +5,11 @@ using System.Threading.Tasks;
 
 namespace HackTheCrisis.Models
 {
-    public class EnumOfferType
+    public enum OfferType
     {
-        public enum OfferType
-        {
-            IndustrialProduction,
-            ComponentProduction,
-            TransportLogistics,
-            StorageSpace,
-        }
+        IndustrialProduction,
+        ComponentProduction,
+        TransportLogistics,
+        StorageSpace,
     }
 }
