@@ -49,7 +49,8 @@ namespace HackTheCrisis.Controllers
                         QuantityUnit = "st",
                         Location = "Plats saknas",
                         DeliveryDate = demand.WhenDoINeedIt,
-                        CreatedDate = demand.CreatedDate
+                        CreatedDate = demand.CreatedDate,
+                        HelpType = HelpType.Needs
                     });
             }
 

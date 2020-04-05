@@ -14,5 +14,12 @@ namespace HackTheCrisis.Models
         public string Location { get; set; }
         public DateTime DeliveryDate { get; set; }
         public DateTime CreatedDate { get; set; }
+        public HelpType HelpType { get; set; }
+    }
+
+    public enum HelpType
+    {
+        Needs,
+        Supplies
     }
 }

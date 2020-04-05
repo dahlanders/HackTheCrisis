@@ -137,3 +137,10 @@ p, h1, h2, h3, h4 {
 .carousel-caption a {
     font-weight: bold;
 }
+
+.homepage-col h3 {
+    color: #2a6720;
+}
+.recently-added .helpType {
+    color:gray;
+}
