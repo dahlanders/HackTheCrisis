@@ -13,8 +13,11 @@ namespace HackTheCrisis.Models
         [Required]
         public string UnitName { get; set; }
         [Required]
-        public string UnitType { get; set; }
+        public EnumHealthCareUnitType UnitType { get; set; }
 
-        public List<Demand> Demands { get; set; }
+        public List<Need> Needs { get; set; }
+        public ContactDetails ContactDetails { get; set; }
+        public string ContactPerson { get; set; }
+
     }
 }

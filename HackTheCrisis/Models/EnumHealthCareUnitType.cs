@@ -5,13 +5,14 @@ using System.Threading.Tasks;
 
 namespace HackTheCrisis.Models
 {
-    public class EnumUnitType
+    public class EnumHealthCareUnitType
     {
-        public enum UnitType
+        public enum HeltCareUnitType
         {
             Hospital,
-            HealthCenter,
+            PrimaryCare,
             RetirementHome,
+            ServiceHome,
         }
     }
 }

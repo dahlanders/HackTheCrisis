@@ -9,6 +9,8 @@ namespace HackTheCrisis.Models
     {
         public string City { get; set; }
         public string StreetAddress { get; set; }
-        public int StreetNumber { get; set; }
+        public int PostalCode { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
     }
 }
