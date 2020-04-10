@@ -32,7 +32,7 @@ namespace HackTheCrisis.Controllers
 
         public IActionResult Index()
         {
-            var needs = _context.Needs.ToList();
+            //var needs = _context.Needs.ToList();
             //var searchHelper = new SearchHelper(_context);
             //var demands = searchHelper.GetDemands(5);
 
@@ -97,7 +97,7 @@ namespace HackTheCrisis.Controllers
         }
         public IActionResult HealthCareNeed​()
         {
-            return View();
+            return View("SHCN");
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
