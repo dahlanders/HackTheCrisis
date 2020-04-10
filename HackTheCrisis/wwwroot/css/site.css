@@ -156,3 +156,7 @@ p, h1, h2, h3, h4 {
 .introduction-important {
     font-weight: bold;
 }
+
+.responsive-video {
+    width: 100%;
+}
