@@ -32,7 +32,9 @@ namespace HackTheCrisis.Controllers
 
         public IActionResult Index()
         {
+
             //var needs = _context.Needs.ToList();
+
             //var searchHelper = new SearchHelper(_context);
             //var demands = searchHelper.GetDemands(5);
 

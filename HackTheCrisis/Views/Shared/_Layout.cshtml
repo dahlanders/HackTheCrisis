@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - HackTheCrisis</title>
+    <title>@ViewData["Title"] – Industrial Remix to Save Lives</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -35,7 +35,7 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Form">Form</a></li>
+                    @*<li><a asp-area="" asp-controller="Home" asp-action="Form">Form</a></li>*@
                     <li><a asp-area="" asp-controller="Home" asp-action="FAQ">FAQ</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Legal">Legal</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="HealthCareNeed​">SubmitHealthCare</a></li>
@@ -47,12 +47,12 @@
 
     <partial name="_CookieConsentPartial" />
 
-    <div class="container body-content">
+    <div class="container body-content"> 
         @RenderBody()
         <hr />
         <footer>
             <p>
-                &copy; 2020 - Team Geohackers @@ #HackTheCrisisSWE <a href="https://hackforsweden.sehackforsweden.se/">https://hackforsweden.se</a>
+                &copy; 2020 - Team Geohackers @@ #HackTheCrisisSWE <a href="https://www.hackthecrisis.se">hackthecrisis.se</a>
             </p>
         </footer>
     </div>

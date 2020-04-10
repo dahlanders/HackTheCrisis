@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace HackTheCrisis.Models
 {
-    public class ContactDetails
+    public class ContactDetails : Address
     {
-        public int ContactDetailsID { get; set; }
-        public Address Address { get; set; }
         public int PhoneNumber { get; set; }
         public string Email { get; set; }
     }

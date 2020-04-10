@@ -14,8 +14,6 @@ namespace HackTheCrisis.Models
         public string CorporateIdentityNumber { get; set; }
         public string CompanyName { get; set; }
         public string ContactPerson { get; set; }
-        
-        public List<Offer> Offers { get; set; }
 
     }
 }

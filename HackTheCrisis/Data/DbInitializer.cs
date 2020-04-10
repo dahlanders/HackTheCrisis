@@ -13,38 +13,94 @@ namespace HackTheCrisis.Data
         {
             context.Database.EnsureCreated();
 
-
-            //    // Look for any demands
-            //    if (context.Demands.Any())
-            //    {
-            //        return;   // DB has been seeded
-            //    }
-
             //var seed = false;
 
             //if (!seed)
             //    return; // DB has been seeded
 
-            //    // Add health care unit
-            //    var allDemands = context.Demands.ToList();
-            //    var allHealthCareUnits = context.HealthCareUnits.ToList();
-
-
-            //    var testUnitName = "Lucas vårdcentral";
-            //    var testUnit = context.HealthCareUnits.FirstOrDefault(x => x.UnitName == testUnitName);
-
-            //    // If the test health care unit doesn't exist
-            //    if (testUnit == null)
+            //var molnlyckeHealthCareUnit = new HealthCareUnit()
+            //{
+            //    UnitName = "Mölnlycke vårdcentral",
+            //    UnitType = HeltCareUnitType.Hospital,
+            //    Address = new Address
             //    {
-            //        var healthCareUnit = new HealthCareUnit()
-            //        {
-            //            UnitName = testUnitName,
-            //            UnitType = "Primärvård"
-            //        };
+            //        StreetAddress = "Ekdalavägen 2 Närhälsan Mölnlycke Vårdcentral",
+            //        PostalCode = 43530,
+            //        City = "Mölnlycke",
+            //    },
+            //    Email = "test@vgregion.se",
+            //    ContactPerson = "Emil Karlsson",
+            //    PhoneNumber = 0104733610
+            //};
 
-            //        context.HealthCareUnits.Add(healthCareUnit);
-            //        context.SaveChanges();
-            //    }
+            //var ostraHealthCareUnit = new HealthCareUnit()
+            //{
+            //    UnitName = "Östra sjukhuset",
+            //    UnitType = HeltCareUnitType.Hospital,
+            //    Address = new Address
+            //    {
+            //        StreetAddress = "Sahlgrenska Universitetssjukhuset Östra sjukhuset",
+            //        PostalCode = 41685,
+            //        City = "Göteborg ",
+            //    },
+            //    Email = "test@vgregion.se",
+            //    ContactPerson = "Emil Karlsson",
+            //    PhoneNumber = 0313421000
+            //};
+
+            //var sasHealthCareUnit = new HealthCareUnit()
+            //{
+            //    UnitName = "Södra Älvsborgs Sjukhus",
+            //    UnitType = HeltCareUnitType.Hospital,
+            //    Address = new Address
+            //    {
+            //        StreetAddress = "Brämhultsvägen 53 Södra Älvsborgs Sjukhus",
+            //        PostalCode = 50182,
+            //        City = "Borås ",
+            //    },
+            //    Email = "test@vgregion.se",
+            //    ContactPerson = "Emil Karlsson",
+            //    PhoneNumber = 0336161000
+            //};
+
+            //context.HealthCareUnits.Add(molnlyckeHealthCareUnit);
+            //context.HealthCareUnits.Add(ostraHealthCareUnit);
+            //context.HealthCareUnits.Add(sasHealthCareUnit);
+            
+
+
+            //var volvoIndustrialPartner = new IndustrialPartner()
+            //{
+            //    CompanyName = "Volvo trucks",
+            //    CorporateIdentityNumber = "123456789123",
+            //    Address = new Address
+            //    {
+            //        StreetAddress = "Gropegårdsgatan 2",
+            //        PostalCode = 41715,
+            //        City = "Göteborg",
+            //    },
+            //    Email = "test@volvo.se",
+            //    ContactPerson = "Emil Karlsson",
+            //    PhoneNumber = 12345689,
+            //};
+
+            // var fraktbolagetIndustrialPartner = new IndustrialPartner()
+            //{
+            //    CompanyName = "Volvo trucks",
+            //    CorporateIdentityNumber = "123456789123",
+            //    Address = new Address
+            //    {
+            //        StreetAddress = "Gropegårdsgatan 2",
+            //        PostalCode = 41715,
+            //        City = "Göteborg",
+            //    },
+            //    Email = "test@volvo.se",
+            //    ContactPerson = "Emil Karlsson",
+            //    PhoneNumber = 12345689,
+            //};
+
+
+
 
 
             //var molnlyckeHealthCareUnit = new HealthCareUnit()
@@ -52,23 +108,9 @@ namespace HackTheCrisis.Data
             //    UnitName = "Mölnlycke vårdcentral",
             //    UnitType = "Vårdcentral"
             //};
-            //var sosHealthCareUnit = new HealthCareUnit()
-            //{
-            //    UnitName = "SÖS",
-            //    UnitType = "Primärvård"
-            //};
 
-            // Add demand
+
             //var demands = context.Demands.Include(o => o.HealthCareUnit).ToList();
-
-            //var demandPotatos = new Demand()
-            //{
-            //    Item = "Säck potatis",
-            //    Quantity = 10,
-            //    WhenDoINeedIt = DateTime.Now.AddDays(10),
-            //    CreatedDate = DateTime.Now,
-            //    HealthCareUnit = testUnit,
-            //};
 
             //var demandSpace = new Demand()
             //{
@@ -79,16 +121,13 @@ namespace HackTheCrisis.Data
             //    HealthCareUnit = testUnit,
             //};
 
-            //context.Demands.Add(demandPotatos);
-            //context.Demands.Add(demandSpace);
-            //context.SaveChanges();
-            //context.HealthCareUnits.Add(molnlyckeHealthCareUnit);
+
             //context.HealthCareUnits.Add(sosHealthCareUnit);
             //context.SaveChanges();
 
             //var demands = context.Demands.Include(o => o.HealthCareUnit).ToList();
 
-            // // Add demands
+            //// Add demands
             //var demandMunskydd = new Demand()
             //{
             //    Item = "Munskydd",
@@ -98,17 +137,7 @@ namespace HackTheCrisis.Data
             //    HealthCareUnit = molnlyckeHealthCareUnit,
             //};
 
-            //var demandRespiratorer = new Demand()
-            //{
-            //    Item = "Respiratorer",
-            //    Quantity = 40,
-            //    WhenDoINeedIt = DateTime.Now.AddDays(30),
-            //    CreatedDate = DateTime.Now.AddMinutes(50),
-            //    HealthCareUnit = sosHealthCareUnit,
-            //};
-
             //context.Demands.Add(demandMunskydd);
-            //context.Demands.Add(demandRespiratorer);
             //context.SaveChanges();
 
         }
