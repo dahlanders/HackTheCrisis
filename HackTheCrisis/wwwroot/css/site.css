@@ -14,7 +14,7 @@ body {
     padding-bottom: 20px;
 }
 
-p, h1, h2, h3, h4 {
+p, h1, h2, h3, h4, li {
     /* Marcus tillägg, för läsbarhet */
     max-width: 40em;
 }
