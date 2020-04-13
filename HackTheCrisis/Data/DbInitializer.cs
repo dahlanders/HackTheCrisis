@@ -13,133 +13,137 @@ namespace HackTheCrisis.Data
         {
             context.Database.EnsureCreated();
 
-            //var seed = false;
+            var seed = false;
 
-            //if (!seed)
-            //    return; // DB has been seeded
+            if (!seed)
+                return; // DB has been seeded
 
-            //var molnlyckeHealthCareUnit = new HealthCareUnit()
-            //{
-            //    UnitName = "Mölnlycke vårdcentral",
-            //    UnitType = HeltCareUnitType.Hospital,
-            //    Address = new Address
-            //    {
-            //        StreetAddress = "Ekdalavägen 2 Närhälsan Mölnlycke Vårdcentral",
-            //        PostalCode = 43530,
-            //        City = "Mölnlycke",
-            //    },
-            //    Email = "test@vgregion.se",
-            //    ContactPerson = "Emil Karlsson",
-            //    PhoneNumber = 0104733610
-            //};
+            var molnlyckeHealthCareUnit = new HealthCareUnit()
+            {
+                UnitName = "Mölnlycke vårdcentral",
+                UnitType = HeltCareUnitType.Hospital,
+                StreetAddress = "Ekdalavägen 2 Närhälsan Mölnlycke Vårdcentral",
+                PostalCode = 43530,
+                City = "Mölnlycke",
+                Email = "test@vgregion.se",
+                ContactPerson = "Oscar Andersson",
+                PhoneNumber = 0104733610
+            };
 
-            //var ostraHealthCareUnit = new HealthCareUnit()
-            //{
-            //    UnitName = "Östra sjukhuset",
-            //    UnitType = HeltCareUnitType.Hospital,
-            //    Address = new Address
-            //    {
-            //        StreetAddress = "Sahlgrenska Universitetssjukhuset Östra sjukhuset",
-            //        PostalCode = 41685,
-            //        City = "Göteborg ",
-            //    },
-            //    Email = "test@vgregion.se",
-            //    ContactPerson = "Emil Karlsson",
-            //    PhoneNumber = 0313421000
-            //};
+            var ostraHealthCareUnit = new HealthCareUnit()
+            {
+                UnitName = "Östra sjukhuset",
+                UnitType = HeltCareUnitType.Hospital,
+                StreetAddress = "Sahlgrenska Universitetssjukhuset Östra sjukhuset",
+                PostalCode = 41685,
+                City = "Göteborg",
+                Email = "test@vgregion.se",
+                ContactPerson = "Livia Hirst",
+                PhoneNumber = 0313421000
+            };
 
-            //var sasHealthCareUnit = new HealthCareUnit()
-            //{
-            //    UnitName = "Södra Älvsborgs Sjukhus",
-            //    UnitType = HeltCareUnitType.Hospital,
-            //    Address = new Address
-            //    {
-            //        StreetAddress = "Brämhultsvägen 53 Södra Älvsborgs Sjukhus",
-            //        PostalCode = 50182,
-            //        City = "Borås ",
-            //    },
-            //    Email = "test@vgregion.se",
-            //    ContactPerson = "Emil Karlsson",
-            //    PhoneNumber = 0336161000
-            //};
+            var sasHealthCareUnit = new HealthCareUnit()
+            {
+                UnitName = "Södra Älvsborgs Sjukhus",
+                UnitType = HeltCareUnitType.Hospital,
+                StreetAddress = "Brämhultsvägen 53 Södra Älvsborgs Sjukhus",
+                PostalCode = 50182,
+                City = "Borås",
+                Email = "test@vgregion.se",
+                ContactPerson = "Lucca Mill",
+                PhoneNumber = 0336161000
+            };
 
-            //context.HealthCareUnits.Add(molnlyckeHealthCareUnit);
-            //context.HealthCareUnits.Add(ostraHealthCareUnit);
-            //context.HealthCareUnits.Add(sasHealthCareUnit);
+            context.HealthCareUnits.Add(molnlyckeHealthCareUnit);
+            context.HealthCareUnits.Add(ostraHealthCareUnit);
+            context.HealthCareUnits.Add(sasHealthCareUnit);
+
+            var volvoIndustrialPartner = new IndustrialPartner()
+            {
+                CompanyName = "Volvo trucks",
+                CorporateIdentityNumber = "123456789123",
+                StreetAddress = "Gropegårdsgatan 2",
+                PostalCode = 41715,
+                City = "Göteborg",
+                Email = "test@volvo.se",
+                ContactPerson = "Danika Villarreal",
+                PhoneNumber = 12345689,
+            };
+
+            var fraktbolagetIndustrialPartner = new IndustrialPartner()
+            {
+                CompanyName = "Fraktbolaget AB",
+                CorporateIdentityNumber = "9988123741",
+                StreetAddress = "Pedagogen Park, Prästgårdsgatan 32",
+                PostalCode = 43144,
+                City = "Mölndal",
+                Email = "test@fraktbolaget.se",
+                ContactPerson = "Roger Adam Persson",
+                PhoneNumber = 55564123,
+            };
+
+            context.IndustrialPartners.Add(volvoIndustrialPartner);
+            context.IndustrialPartners.Add(fraktbolagetIndustrialPartner);
+
+            var munskyddNeed = new Need
+            {
+                //CreatedDate = DateTime.Now.AddDays(-15), TODO: Ta tillbaka CreatedDate
+                DeliveryDate = DateTime.Now.AddDays(1),
+                Description = "Munskydd",
+                EnumNeedType = NeedType.Munskydd,
+                Owner = molnlyckeHealthCareUnit,
+                Quantity = 300,
+                QuantityUnit = "st"
+            };
+
+            var handspritNeed = new Need
+            {
+                //CreatedDate = DateTime.Now, TODO: Ta tillbaka CreatedDate
+                DeliveryDate = DateTime.Now.AddDays(20),
+                Description = "Handsprit",
+                EnumNeedType = NeedType.Handsprit,
+                Owner = ostraHealthCareUnit,
+                Quantity = 10000.5f,
+                QuantityUnit = "cl"
+            };
+
+            var respiratorNeed = new Need
+            {
+                //CreatedDate = DateTime.Now.AddDays(-5), TODO: Ta tillbaka CreatedDate
+                DeliveryDate = DateTime.Now.AddDays(50),
+                Description = "Respirator",
+                EnumNeedType = NeedType.Respirator,
+                Owner = sasHealthCareUnit,
+                Quantity = 40,
+                QuantityUnit = "st"
+            };
+
+            context.Needs.Add(munskyddNeed);
+            context.Needs.Add(handspritNeed);
+            context.Needs.Add(respiratorNeed);
+
+            var visirOffer = new Offer
+            {
+                CreatedDate = DateTime.Now.AddDays(-10),
+                Description = "Visir",
+                OfferTypes = OfferType.ComponentProduction,
+                Type = IndustrialPartnerType.ManufacturingIndustry,
+                Owner = volvoIndustrialPartner
+            };
+
+            var transportOffer = new Offer
+            {
+                CreatedDate = DateTime.Now.AddDays(-10),
+                Description = "Godstransport",
+                OfferTypes = OfferType.TransportLogistics,
+                Type = IndustrialPartnerType.LogisticsAndTransport,
+                Owner = fraktbolagetIndustrialPartner
+            };
+
+            context.Offers.Add(visirOffer);
+            context.Offers.Add(transportOffer);
             
-
-
-            //var volvoIndustrialPartner = new IndustrialPartner()
-            //{
-            //    CompanyName = "Volvo trucks",
-            //    CorporateIdentityNumber = "123456789123",
-            //    Address = new Address
-            //    {
-            //        StreetAddress = "Gropegårdsgatan 2",
-            //        PostalCode = 41715,
-            //        City = "Göteborg",
-            //    },
-            //    Email = "test@volvo.se",
-            //    ContactPerson = "Emil Karlsson",
-            //    PhoneNumber = 12345689,
-            //};
-
-            // var fraktbolagetIndustrialPartner = new IndustrialPartner()
-            //{
-            //    CompanyName = "Volvo trucks",
-            //    CorporateIdentityNumber = "123456789123",
-            //    Address = new Address
-            //    {
-            //        StreetAddress = "Gropegårdsgatan 2",
-            //        PostalCode = 41715,
-            //        City = "Göteborg",
-            //    },
-            //    Email = "test@volvo.se",
-            //    ContactPerson = "Emil Karlsson",
-            //    PhoneNumber = 12345689,
-            //};
-
-
-
-
-
-            //var molnlyckeHealthCareUnit = new HealthCareUnit()
-            //{
-            //    UnitName = "Mölnlycke vårdcentral",
-            //    UnitType = "Vårdcentral"
-            //};
-
-
-            //var demands = context.Demands.Include(o => o.HealthCareUnit).ToList();
-
-            //var demandSpace = new Demand()
-            //{
-            //    Item = "Rymdskepp",
-            //    Quantity = 3,
-            //    WhenDoINeedIt = DateTime.Now.AddDays(30),
-            //    CreatedDate = DateTime.Now.AddMinutes(10),
-            //    HealthCareUnit = testUnit,
-            //};
-
-
-            //context.HealthCareUnits.Add(sosHealthCareUnit);
-            //context.SaveChanges();
-
-            //var demands = context.Demands.Include(o => o.HealthCareUnit).ToList();
-
-            //// Add demands
-            //var demandMunskydd = new Demand()
-            //{
-            //    Item = "Munskydd",
-            //    Quantity = 300,
-            //    WhenDoINeedIt = DateTime.Now,
-            //    CreatedDate = DateTime.Now,
-            //    HealthCareUnit = molnlyckeHealthCareUnit,
-            //};
-
-            //context.Demands.Add(demandMunskydd);
-            //context.SaveChanges();
-
+            context.SaveChanges();
         }
 
     }

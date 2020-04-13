@@ -1,0 +1,48 @@
+﻿@model List<SearchResultViewModel>
+
+@if (Model != null && Model.Any())
+{
+    <div class="row recently-added">
+        <ul class="list-group">
+            @foreach (var item in Model)
+            {
+                var helpType = "";
+                if (item.HelpType == HelpType.Needs)
+                {
+                    helpType = "needs";
+                }
+                else
+                {
+                    helpType = "can supply";
+                }
+
+                <li class="list-group-item">
+                    <strong>@item.Organization</strong> <span class="helpType">@helpType</span> <strong>@item.Item</strong>
+                </li>
+            }
+
+            <!-- Mockup data -->
+            @*<li class="list-group-item">
+                    <strong>Mölnlycke vårdcentral</strong> <span class="helpType">needs</span> <strong>Munskydd</strong>
+                </li>
+                <li class="list-group-item">
+                    <strong>Volvo trucks</strong> <span class="helpType">can supply</span> <strong>Visir</strong>
+                </li>
+                <li class="list-group-item">
+                    <strong>Östra sjukhuset</strong> <span class="helpType">needs</span> <strong>Skyddskläder</strong>
+                </li>
+                <li class="list-group-item">
+                    <strong>SÄS</strong> <span class="helpType">needs</span> <strong>Respiratorer</strong>
+                </li>
+                <li class="list-group-item">
+                    <strong>Sahlgrenska Universitetssjukhuset</strong> <span class="helpType">needs</span> <strong>Handsprit</strong>
+                </li>*@
+        </ul>
+        <a asp-area="" asp-controller="Search" asp-action="Index">Find more...</a>
+    </div>
+}
+else
+{
+    <p>No one has made any needs or offers. Take this opportunity to state your need or to help out our healthcare system.</p>
+    <a asp-area="" asp-controller="Home" asp-action="About">Find out more...</a>
+}

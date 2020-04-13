@@ -1,5 +1,6 @@
 ﻿using HackTheCrisis.Data;
 using HackTheCrisis.Models;
+using HackTheCrisis.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,18 +18,53 @@ namespace HackTheCrisis.Helpers
             _context = context;
         }
 
-        //public List<Demand> GetDemands(int count)
-        //{
-        //    var demands = _context.Demands.Include(x => x.HealthCareUnit)
-        //        .OrderByDescending(x => x.CreatedDate);
+        public List<SearchResultViewModel> GetViewSearchResults(int take = 0)
+        {
+            var searchResultViewModel = new List<SearchResultViewModel>();
+            var repository = new SearchRepository(_context);
 
-        //    var  result = new List<Demand>();
+            // Populate the view model with needs
+            var needs = repository.GetAllNeeds();
+            foreach (var need in needs)
+            {
+                searchResultViewModel.Add(
+                    new SearchResultViewModel()
+                    {
+                        Organization = need.Owner.UnitName,
+                        Item = need.Description,
+                        Quantity = need.Quantity,
+                        QuantityUnit = need.QuantityUnit,
+                        Location = need.Owner.City,
+                        DeliveryDate = need.DeliveryDate,
+                        CreatedDate =  DateTime.Now,//need.CreatedDate, TODO: Ta tillbaka CreatedDate
+                        HelpType = HelpType.Needs
+                    });
+            }
 
-        //    if(count > 0)
-        //        result = demands.Take(count).ToList();
+            // Populate the view model with offers
+            var offers = repository.GetAllOffers();
+            foreach (var offer in offers)
+            {
+                searchResultViewModel.Add(
+                    new SearchResultViewModel()
+                    {
+                        Organization = offer.Owner.CompanyName,
+                        Item = offer.Description,
+                        Quantity = 0,
+                        QuantityUnit = "",
+                        Location = offer.Owner.City,
+                        CreatedDate = offer.CreatedDate,
+                        HelpType = HelpType.Offer
+                    });
+            }
 
-        //    return result;
-        //}
+            IEnumerable<SearchResultViewModel> result = searchResultViewModel.OrderBy(x => x.CreatedDate);
+            
+            if(take > 0)
+                result = result.Take(take);
+
+            return result.ToList();
+        }
     }
 
 

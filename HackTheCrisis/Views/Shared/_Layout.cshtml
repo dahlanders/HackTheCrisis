@@ -49,7 +49,7 @@
 
     <partial name="_CookieConsentPartial" />
 
-    <div class="container body-content"> 
+    <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
@@ -58,6 +58,8 @@
             </p>
         </footer>
     </div>
+
+    <script src="_framework/blazor.server.js"></script>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using HackTheCrisis.Models;
 using HackTheCrisis.Data;
 using Microsoft.EntityFrameworkCore;
-using Lucene.Net.Store.Azure;
-using Microsoft.WindowsAzure.Storage;
 using Microsoft.Extensions.Configuration;
 using Lucene.Net.Index;
 using Lucene.Net.Store;
@@ -24,6 +22,8 @@ namespace HackTheCrisis.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IConfiguration _configuration;
 
+        private const int START_PAGE_LIST_COUNT = 5;
+
         public HomeController(ApplicationDbContext context, IConfiguration configuration)
         {
             _context = context;
@@ -32,29 +32,10 @@ namespace HackTheCrisis.Controllers
 
         public IActionResult Index()
         {
-            //var searchHelper = new SearchHelper(_context);
-            //var demands = searchHelper.GetDemands(5);
+            var searchHelper = new SearchHelper(_context);
+            var searchResultViewModel = searchHelper.GetViewSearchResults(START_PAGE_LIST_COUNT);
 
-            //var searchResultViewModel = new List<SearchResultViewModel>();
-
-            //// Populate the search view model
-            //foreach (var demand in demands)
-            //{
-            //    searchResultViewModel.Add(
-            //        new SearchResultViewModel()
-            //        {
-            //            Organization = demand.HealthCareUnit.UnitName,
-            //            Item = demand.Item,
-            //            Quantity = demand.Quantity,
-            //            QuantityUnit = "st",
-            //            Location = "Plats saknas",
-            //            DeliveryDate = demand.WhenDoINeedIt,
-            //            CreatedDate = demand.CreatedDate,
-            //            HelpType = HelpType.Needs
-            //        });
-            //}
-
-            return View(/*searchResultViewModel*/);
+            return View(searchResultViewModel);
         }
 
         public IActionResult About()

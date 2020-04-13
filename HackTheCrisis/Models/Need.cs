@@ -16,7 +16,7 @@ namespace HackTheCrisis.Models
         public float Quantity { get; set; }
         public string QuantityUnit { get; set; }
         public DateTime DeliveryDate { get; set; }
-        public HealthCareUnit Owner { get; set; }     
-        public DateTime CreatedDate { get; set; }
+        public HealthCareUnit Owner { get; set; }
+        //public DateTime CreatedDate { get; set; } TODO: Ta tillbaka CreatedDate
     }
 }

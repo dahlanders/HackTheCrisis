@@ -12,5 +12,6 @@ namespace HackTheCrisis.Models
         public string Description { get; set; }
         public IndustrialPartner Owner { get; set; }
         public IndustrialPartnerType Type { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }
