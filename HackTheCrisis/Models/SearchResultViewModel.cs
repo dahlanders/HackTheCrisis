@@ -13,7 +13,7 @@ namespace HackTheCrisis.Models
         public string QuantityUnit { get; set; }
         public string Location { get; set; }
         public DateTime DeliveryDate { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime SubmittedDate { get; set; }
         public HelpType HelpType { get; set; }
     }
 }

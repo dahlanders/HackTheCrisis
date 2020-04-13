@@ -21,10 +21,7 @@ namespace HackTheCrisis.Controllers
         // GET: Search
         public ActionResult Index()
         {
-            var searchHelper = new SearchHelper(_context);
-            var searchResultViewModel = searchHelper.GetViewSearchResults();
-
-            return View(searchResultViewModel);
+            return View();
         }
     }
 }

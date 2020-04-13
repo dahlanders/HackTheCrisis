@@ -8,11 +8,6 @@ using HackTheCrisis.Models;
 using HackTheCrisis.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Lucene.Net.Index;
-using Lucene.Net.Store;
-using Lucene.Net.Analysis.Standard;
-using Lucene.Net.Documents;
-using Lucene.Net.Search;
 using HackTheCrisis.Helpers;
 
 namespace HackTheCrisis.Controllers
@@ -33,7 +28,7 @@ namespace HackTheCrisis.Controllers
         public IActionResult Index()
         {
             var searchHelper = new SearchHelper(_context);
-            var searchResultViewModel = searchHelper.GetViewSearchResults(START_PAGE_LIST_COUNT);
+            var searchResultViewModel = searchHelper.ListAllNeedsAndOffers(skip: 0, take: START_PAGE_LIST_COUNT).Result;
 
             return View(searchResultViewModel);
         }

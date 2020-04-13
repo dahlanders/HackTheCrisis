@@ -87,7 +87,7 @@ namespace HackTheCrisis.Data
 
             var munskyddNeed = new Need
             {
-                //CreatedDate = DateTime.Now.AddDays(-15), TODO: Ta tillbaka CreatedDate
+                //SubmittedDate = DateTime.Now.AddDays(-15), TODO: Ta tillbaka SubmittedDate
                 DeliveryDate = DateTime.Now.AddDays(1),
                 Description = "Munskydd",
                 EnumNeedType = NeedType.Munskydd,
@@ -98,7 +98,7 @@ namespace HackTheCrisis.Data
 
             var handspritNeed = new Need
             {
-                //CreatedDate = DateTime.Now, TODO: Ta tillbaka CreatedDate
+                //SubmittedDate = DateTime.Now, TODO: Ta tillbaka SubmittedDate
                 DeliveryDate = DateTime.Now.AddDays(20),
                 Description = "Handsprit",
                 EnumNeedType = NeedType.Handsprit,
@@ -109,7 +109,7 @@ namespace HackTheCrisis.Data
 
             var respiratorNeed = new Need
             {
-                //CreatedDate = DateTime.Now.AddDays(-5), TODO: Ta tillbaka CreatedDate
+                //SubmittedDate = DateTime.Now.AddDays(-5), TODO: Ta tillbaka SubmittedDate
                 DeliveryDate = DateTime.Now.AddDays(50),
                 Description = "Respirator",
                 EnumNeedType = NeedType.Respirator,
@@ -124,7 +124,7 @@ namespace HackTheCrisis.Data
 
             var visirOffer = new Offer
             {
-                CreatedDate = DateTime.Now.AddDays(-10),
+                //SubmittedDate = DateTime.Now.AddDays(-10),
                 Description = "Visir",
                 OfferTypes = OfferType.ComponentProduction,
                 Type = IndustrialPartnerType.ManufacturingIndustry,
@@ -133,7 +133,7 @@ namespace HackTheCrisis.Data
 
             var transportOffer = new Offer
             {
-                CreatedDate = DateTime.Now.AddDays(-10),
+                //SubmittedDate = DateTime.Now.AddDays(-10),
                 Description = "Godstransport",
                 OfferTypes = OfferType.TransportLogistics,
                 Type = IndustrialPartnerType.LogisticsAndTransport,

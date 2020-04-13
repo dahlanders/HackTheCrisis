@@ -11,23 +11,33 @@ namespace HackTheCrisis.Helpers
 {
     public class SearchHelper
     {
-        //private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        //public SearchHelper(ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-
-        public List<SearchResultViewModel> GetViewSearchResults(int take = 0)
+        public SearchHelper(ApplicationDbContext context)
         {
-            var searchResultViewModel = new List<SearchResultViewModel>();
+            _context = context;
+        }
+
+        public async Task<int> NeedsAndOffersCount()
+        {
+            var repository = new SearchRepository(_context);
+
+            var needs = await Task.FromResult(repository.GetAllNeeds());
+            var offers = await Task.FromResult(repository.GetAllOffers());
+
+            return needs.Count() + offers.Count();
+        }
+
+        public async Task<IEnumerable<SearchResultViewModel>> ListAllNeedsAndOffers(int skip = 0, int take = 0, string orderBy = "", string direction = "DESC", string search = "")
+        {
+            var listData = new List<SearchResultViewModel>();
             var repository = new SearchRepository(_context);
 
             // Populate the view model with needs
-            var needs = repository.GetAllNeeds();
+            var needs = await Task.FromResult(repository.GetAllNeeds());
             foreach (var need in needs)
             {
-                searchResultViewModel.Add(
+                listData.Add(
                     new SearchResultViewModel()
                     {
                         Organization = need.Owner.UnitName,
@@ -36,16 +46,16 @@ namespace HackTheCrisis.Helpers
                         QuantityUnit = need.QuantityUnit,
                         Location = need.Owner.City,
                         DeliveryDate = need.DeliveryDate,
-                        CreatedDate =  DateTime.Now,//need.CreatedDate, TODO: Ta tillbaka CreatedDate
+                        SubmittedDate =  DateTime.Now,//need.SubmittedDate, TODO: Ta tillbaka SubmittedDate
                         HelpType = HelpType.Needs
                     });
             }
 
             // Populate the view model with offers
-            var offers = repository.GetAllOffers();
+            var offers = await Task.FromResult(repository.GetAllOffers());
             foreach (var offer in offers)
             {
-                searchResultViewModel.Add(
+                listData.Add(
                     new SearchResultViewModel()
                     {
                         Organization = offer.Owner.CompanyName,
@@ -53,17 +63,25 @@ namespace HackTheCrisis.Helpers
                         Quantity = 0,
                         QuantityUnit = "",
                         Location = offer.Owner.City,
-                        CreatedDate = offer.CreatedDate,
+                        SubmittedDate = DateTime.Now,//offer.SubmittedDate, TODO: Ta tillbaka SubmittedDate
                         HelpType = HelpType.Offer
                     });
             }
 
-            IEnumerable<SearchResultViewModel> result = searchResultViewModel.OrderBy(x => x.CreatedDate);
-            
+            IEnumerable<SearchResultViewModel> result;
+
+            if(direction == "DESC")
+                result = listData.OrderByDescending(x => x.SubmittedDate);
+            else
+                result = listData.OrderBy(x => x.SubmittedDate);
+
+            if (skip > 0)
+                result = result.Skip(skip);
+
             if(take > 0)
                 result = result.Take(take);
 
-            return result.ToList();
+            return result;
         }
     }
 
