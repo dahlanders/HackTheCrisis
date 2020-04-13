@@ -1,0 +1,19 @@
+<%@ Page ContentType="application/rss+xml" Language="C#" AutoEventWireup="true" CodeBehind="PostRSS.aspx.cs" Inherits="rr.web.Views.Blog.PostRSS" %><?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+<channel>
+<title>ricky rosario's blog</title>
+<link>http://<%= Request.Url.Host %></link>
+<description>Blog RSS feed for rickyrosario.com</description>
+<lastBuildDate><%= ViewData.Model.First().DatePublished.Value.ToUniversalTime().ToString("r") %></lastBuildDate>
+<language>en-us</language>
+<% foreach (Post p in ViewData.Model) { %>
+    <item>
+    <title><%= Html.Encode(p.Title) %></title>
+    <link>http://<%= Request.Url.Host + Url.Action("ViewPostByName", new RouteValueDictionary(new { name = p.Name })) %></link>
+    <guid>http://<%= Request.Url.Host + Url.Action("ViewPostByName", new RouteValueDictionary(new { name = p.Name })) %></guid>
+    <pubDate><%= p.DatePublished.Value.ToUniversalTime().ToString("r") %></pubDate>
+    <description><%= Html.Encode(p.Content) %></description>
+    </item>
+<% } %>
+</channel>
+</rss>
