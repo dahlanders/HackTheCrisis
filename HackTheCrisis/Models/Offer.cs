@@ -13,5 +13,10 @@ namespace HackTheCrisis.Models
         public IndustrialPartner Owner { get; set; }
         public IndustrialPartnerType Type { get; set; }
         public DateTime CreatedDate { get; set; }
+        public EnumOfferStatus OfferStatus { get; set; }
+        public float Quantity { get; set; }
+        public string QuantityUnit { get; set; }
+        public DateTime DeliveryDate { get; set; }
+
     }
 }

@@ -11,5 +11,7 @@ namespace HackTheCrisis.Models
         ComponentProduction,
         TransportLogistics,
         StorageSpace,
+        ProductBlueprintAndIpRights,
+        Other,
     }
 }

@@ -24,10 +24,10 @@ namespace HackTheCrisis
                 var services = scope.ServiceProvider;
                 try
                 {
-                    using (var context = services.GetRequiredService<ApplicationDbContext>())
-                    {
-                        DbInitializer.Initialize(context);
-                    }
+                    //using (var context = services.GetRequiredService<ApplicationDbContext>())
+                    //{
+                    //    DbInitializer.Initialize(context);
+                    //}
                 }
                 catch (Exception ex)
                 {

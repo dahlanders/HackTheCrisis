@@ -11,12 +11,12 @@ namespace HackTheCrisis.Helpers
 {
     public class SearchHelper
     {
-        private readonly ApplicationDbContext _context;
+        //private readonly ApplicationDbContext _context;
 
-        public SearchHelper(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+        //public SearchHelper(ApplicationDbContext context)
+        //{
+        //    _context = context;
+        //}
 
         public List<SearchResultViewModel> GetViewSearchResults(int take = 0)
         {
