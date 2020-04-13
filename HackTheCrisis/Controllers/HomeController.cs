@@ -97,9 +97,21 @@ namespace HackTheCrisis.Controllers
         {
             return View();
         }
-        public IActionResult HealthCareNeed​()
+        public IActionResult Need()
         {
-            return View("SHCN");
+            return View();
+        }
+        public IActionResult Register()
+        {
+            return View();
+        }
+        public IActionResult RegisterHealth()
+        {
+            return View();
+        }
+        public IActionResult RegisterIndustrial()
+        {
+            return View();
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

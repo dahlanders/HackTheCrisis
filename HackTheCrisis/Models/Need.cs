@@ -17,6 +17,8 @@ namespace HackTheCrisis.Models
         public string QuantityUnit { get; set; }
         public DateTime DeliveryDate { get; set; }
         public HealthCareUnit Owner { get; set; }     
-        public DateTime CreatedDate { get; set; }
+        public DateTime SubmittedDate { get; set; }
+        public EnumNeesStatus NeesStatus { get; set; }
+
     }
 }

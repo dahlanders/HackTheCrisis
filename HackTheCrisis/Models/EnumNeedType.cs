@@ -7,10 +7,16 @@ namespace HackTheCrisis.Models
 {
     public enum NeedType
     {
-        Munskydd,
-        Visir,
+        Andningsskydd,
         Handsprit,
+        Läkemedelspump,
+        Munskydd,
+        Plastförkläde,
         Respirator,
+        Skyddsglasögon,
+        Skyddshandskar,
+        Skyddsrock,
+        Visir,
         Other,
     }
 }
