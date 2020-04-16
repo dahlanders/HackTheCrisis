@@ -1,87 +1,92 @@
-﻿using HackTheCrisis.Data;
-using HackTheCrisis.Models;
-using HackTheCrisis.Repositories;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using HackTheCrisis.Models.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace HackTheCrisis.Helpers
 {
+    public class SearchResult
+    {
+        public IEnumerable<SearchResultViewModel> Items { get; set; }
+        public int ReturnedHits { get; set; }
+    }
+
     public class SearchHelper
     {
-        private readonly ApplicationDbContext _context;
+        private IEnumerable<SearchResultViewModel> _searchResultViewModel;
 
-        public SearchHelper(ApplicationDbContext context)
+        public SearchHelper(IEnumerable<SearchResultViewModel> searchResultViewModel)
         {
-            _context = context;
+            _searchResultViewModel = searchResultViewModel;
         }
 
-        public async Task<int> NeedsAndOffersCount()
+        public SearchResult ListAllNeedsAndOffers(int skip = 0, int take = 0, string orderBy = "", string direction = "DESC", string search = "", int filterBy = -1)
         {
-            var repository = new SearchRepository(_context);
+            //var listData = new List<SearchResultViewModel>();
 
-            var needs = await Task.FromResult(repository.GetAllNeeds());
-            var offers = await Task.FromResult(repository.GetAllOffers());
+            //// Populate the view model with needs
+            //foreach (var need in _allNeeds)
+            //{
+            //    listData.Add(
+            //        new SearchResultViewModel()
+            //        {
+            //            Organization = need.Owner.UnitName,
+            //            Item = need.Description,
+            //            Quantity = need.Quantity,
+            //            QuantityUnit = need.QuantityUnit,
+            //            Location = need.Owner.City,
+            //            DeliveryDate = need.DeliveryDate,
+            //            SubmittedDate =  DateTime.Now,//need.SubmittedDate, TODO: Ta tillbaka SubmittedDate
+            //            HelpType = HelpType.Needs,
+            //            CategoryId = (int)need.EnumNeedType
+            //        });
+            //}
 
-            return needs.Count() + offers.Count();
-        }
+            //// Populate the view model with offers
+            //foreach (var offer in _allOffers)
+            //{
+            //    listData.Add(
+            //        new SearchResultViewModel()
+            //        {
+            //            Organization = offer.Owner.CompanyName,
+            //            Item = offer.Description,
+            //            Quantity = 0,
+            //            QuantityUnit = "",
+            //            Location = offer.Owner.City,
+            //            SubmittedDate = DateTime.Now,//offer.SubmittedDate, TODO: Ta tillbaka SubmittedDate
+            //            HelpType = HelpType.Offer,
+            //            CategoryId = (int)offer.OfferTypes
+            //        });
+            //}
 
-        public async Task<IEnumerable<SearchResultViewModel>> ListAllNeedsAndOffers(int skip = 0, int take = 0, string orderBy = "", string direction = "DESC", string search = "")
-        {
-            var listData = new List<SearchResultViewModel>();
-            var repository = new SearchRepository(_context);
+            //IEnumerable<SearchResultViewModel> result = listData;
+            IEnumerable<SearchResultViewModel> result = _searchResultViewModel;
 
-            // Populate the view model with needs
-            var needs = await Task.FromResult(repository.GetAllNeeds());
-            foreach (var need in needs)
-            {
-                listData.Add(
-                    new SearchResultViewModel()
-                    {
-                        Organization = need.Owner.UnitName,
-                        Item = need.Description,
-                        Quantity = need.Quantity,
-                        QuantityUnit = need.QuantityUnit,
-                        Location = need.Owner.City,
-                        DeliveryDate = need.DeliveryDate,
-                        SubmittedDate =  DateTime.Now,//need.SubmittedDate, TODO: Ta tillbaka SubmittedDate
-                        HelpType = HelpType.Needs
-                    });
-            }
+            // Filter
+            if (filterBy >= 0)
+                result = result.Where(x => x.CategoryId == filterBy);
 
-            // Populate the view model with offers
-            var offers = await Task.FromResult(repository.GetAllOffers());
-            foreach (var offer in offers)
-            {
-                listData.Add(
-                    new SearchResultViewModel()
-                    {
-                        Organization = offer.Owner.CompanyName,
-                        Item = offer.Description,
-                        Quantity = 0,
-                        QuantityUnit = "",
-                        Location = offer.Owner.City,
-                        SubmittedDate = DateTime.Now,//offer.SubmittedDate, TODO: Ta tillbaka SubmittedDate
-                        HelpType = HelpType.Offer
-                    });
-            }
+            // Search term
+            if (!string.IsNullOrEmpty(search))
+                result = result.Where(x => x.Item.ToLower().Contains(search.ToLower()));
 
-            IEnumerable<SearchResultViewModel> result;
-
-            if(direction == "DESC")
-                result = listData.OrderByDescending(x => x.SubmittedDate);
+            // Order
+            if (direction == "DESC")
+                result = result.OrderByDescending(x => x.SubmittedDate);
             else
-                result = listData.OrderBy(x => x.SubmittedDate);
+                result = result.OrderBy(x => x.SubmittedDate);
 
+            int returnedHits = result.Count();
+
+            // Pagniation
             if (skip > 0)
                 result = result.Skip(skip);
 
-            if(take > 0)
+            // Pagniation
+            if (take > 0)
                 result = result.Take(take);
 
-            return result;
+            return new SearchResult { Items = result, ReturnedHits = returnedHits };
         }
     }
 

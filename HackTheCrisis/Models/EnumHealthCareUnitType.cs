@@ -7,9 +7,9 @@ namespace HackTheCrisis.Models
 {
     public enum HeltCareUnitType
     {
-        Hospital,
-        PrimaryCare,
-        RetirementHome,
-        ServiceHome,
+        Hospital = 1,
+        PrimaryCare = 2,
+        RetirementHome = 3,
+        ServiceHome = 4,
     }
 }

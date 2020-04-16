@@ -7,9 +7,9 @@ namespace HackTheCrisis.Models
 {
     public enum IndustrialPartnerType
     {
-        ManufacturingIndustry,
-        Subcontractor,
-        LogisticsAndTransport,
-        Warehouse,
+        ManufacturingIndustry = 1,
+        Subcontractor = 2,
+        LogisticsAndTransport = 3,
+        Warehouse = 4,
     }
 }

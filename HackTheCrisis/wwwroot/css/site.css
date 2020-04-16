@@ -160,3 +160,7 @@ p, h1, h2, h3, h4, li {
 .responsive-video {
     width: 100%;
 }
+
+.search-list thead {
+    color: #2a6720;
+}

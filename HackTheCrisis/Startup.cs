@@ -13,7 +13,7 @@ using HackTheCrisis.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using HackTheCrisis.Helpers;
+using HackTheCrisis.Repositories;
 
 namespace HackTheCrisis
 {
@@ -43,7 +43,7 @@ namespace HackTheCrisis
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
 
-            services.AddScoped<SearchHelper>();
+            services.AddScoped<SearchRepository>();
 
             services.AddServerSideBlazor();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);

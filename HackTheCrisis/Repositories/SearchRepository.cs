@@ -20,13 +20,13 @@ namespace HackTheCrisis.Repositories
          public IEnumerable<Need> GetAllNeeds()
         {
             var needs = _context.Needs.Include(x => x.Owner);
-            return needs;
+            return needs.ToArray();
         }
 
         public IEnumerable<Offer> GetAllOffers()
         {
             var offers = _context.Offers.Include(x => x.Owner);
-            return offers;
+            return offers.ToArray();
         }
     }
 }

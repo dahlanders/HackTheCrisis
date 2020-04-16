@@ -7,10 +7,10 @@ namespace HackTheCrisis.Models
 {
     public enum EnumOfferStatus
     {
-        Overifierat,
-        Publicerat,
-        Utnyttjat,
-        DelvisUtnyttjat,
-        Borttaget,
+        Overifierat = 1,
+        Publicerat = 2,
+        Utnyttjat = 3,
+        DelvisUtnyttjat = 4,
+        Borttaget = 5,
     }
 }
