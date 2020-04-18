@@ -4,6 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static HackTheCrisis.Models.HealthCareUnit;
+using static HackTheCrisis.Models.Need;
+using static HackTheCrisis.Models.Offer;
 
 namespace HackTheCrisis.Data
 {

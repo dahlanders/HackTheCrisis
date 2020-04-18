@@ -14,5 +14,12 @@ namespace HackTheCrisis.Models
         public string UnitName { get; set; }
         public HeltCareUnitType UnitType { get; set; }
         public string ContactPerson { get; set; }
+        public enum HeltCareUnitType
+        {
+            Hospital,
+            PrimaryCare,
+            RetirementHome,
+            ServiceHome,
+        }
     }
 }

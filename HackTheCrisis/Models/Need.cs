@@ -19,6 +19,28 @@ namespace HackTheCrisis.Models
         public HealthCareUnit Owner { get; set; }     
         public DateTime SubmittedDate { get; set; }
         public EnumNeesStatus NeesStatus { get; set; }
+        public enum NeedType
+        {
+            Andningsskydd,
+            Handsprit,
+            Läkemedelspump,
+            Munskydd,
+            Plastförkläde,
+            Respirator,
+            Skyddsglasögon,
+            Skyddshandskar,
+            Skyddsrock,
+            Visir,
+            Other,
+        }
+        public enum EnumNeesStatus
+        {
+            Overifierat,
+            Publicerat,
+            Tillgodosett,
+            Borttaget,
+            DelvisTillgodosett,
+        }
 
     }
 }

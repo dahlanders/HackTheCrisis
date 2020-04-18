@@ -17,6 +17,30 @@ namespace HackTheCrisis.Models
         public float Quantity { get; set; }
         public string QuantityUnit { get; set; }
         public DateTime DeliveryDate { get; set; }
+        public enum EnumOfferStatus
+        {
+            Overifierat,
+            Publicerat,
+            Utnyttjat,
+            DelvisUtnyttjat,
+            Borttaget,
+        }
+        public enum OfferType
+        {
+            IndustrialProduction,
+            ComponentProduction,
+            TransportLogistics,
+            StorageSpace,
+            ProductBlueprintAndIpRights,
+            Other,
+        }
+        public enum IndustrialPartnerType
+        {
+            ManufacturingIndustry,
+            Subcontractor,
+            LogisticsAndTransport,
+            Warehouse,
+        }
 
     }
 }
