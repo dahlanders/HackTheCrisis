@@ -141,8 +141,9 @@ p, h1, h2, h3, h4, li {
 .homepage-col h3 {
     color: #2a6720;
 }
+
 .recently-added .helpType {
-    color:gray;
+    color: gray;
 }
 
 .introduction {
@@ -161,6 +162,44 @@ p, h1, h2, h3, h4, li {
     width: 100%;
 }
 
+/* --- Search Page --- */
 .search-list thead {
     color: #2a6720;
 }
+
+.search-field {
+    margin: 20px 0 10px 0;
+}
+
+.filter {
+    margin: 10px 0;
+}
+
+.search-result-count {
+    text-align: center;
+}
+
+
+/* --- Tabs --- */
+.nav-tabs {
+    border-bottom: 1px solid #2a6720;
+}
+
+    .nav-tabs > li > a {
+        color: #000;
+        border: 1px solid #2a6720;
+        border-radius: 0;
+        font-size: 1.8rem;
+        margin-right: 0;
+    }
+
+        .nav-tabs > li > a:hover {
+            border-color: #2a6720;
+        }
+
+        /* Active */
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+        color: #fff;
+        background-color: #2a6720;
+        border: 1px solid #2a6720;
+    }

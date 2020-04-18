@@ -5,26 +5,28 @@
 
 
 @* Search term *@
-<div class="row search-list">
-    <div class="row col-md-3 pull-right">
+<div class="search-list">
+    <div class="search-field">
         <input type="text" id="txtSearch" placeholder="What do you need?" class="form-control" @bind="SearchTerm" @bind:event="oninput" />
     </div>
     @* Filter *@
-    @if (FilterOptions != null && FilterOptions.Any())
-    {
-        <select id="filterSelect" class="form-control"
-                @onchange="Filter">
-            <option selected="selected" value="-1">Please select</option>
-            @foreach (var opt in FilterOptions)
-            {
-                <option value=@opt.Value>@opt.Text</option>
-            }
-        </select>
-    }
-    <div class="col-lg-12">
+    <div class="filter">
+        @if (FilterOptions != null && FilterOptions.Any())
+        {
+            <select id="filterSelect" class="form-control"
+                    @onchange="Filter">
+                <option selected="selected" value="-1">Category...</option>
+                @foreach (var opt in FilterOptions)
+                {
+                    <option value=@opt.Value>@opt.Text</option>
+                }
+            </select>
+        }
+    </div>
+    <div class="search-result-count">
         <span>@totalRecords results</span>
     </div>
-    <div class="col-lg-12">
+    <div>
         @if (searchResult != null && searchResult.Any())
         {
             <table class="table" id="table">
@@ -73,8 +75,6 @@
 
     </div>
 </div>
-
-<button class="btn btn-custom" @onclick="Close">X</button>
 
 @code {
     [Parameter]
