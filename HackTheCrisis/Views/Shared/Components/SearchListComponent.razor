@@ -66,7 +66,7 @@
         @for (int i = startPage; i <= endPage; i++)
         {
             var currentPage = i;
-            <button class="btn btn-custom pagebutton @(currentPage==curPage?"btn-danger":"")" @onclick=@(()=> refreshRecords(currentPage))>
+            <button class="btn btn-custom pagebutton @(currentPage==curPage?"btn-orange":"")" @onclick=@(()=> refreshRecords(currentPage))>
                 @currentPage
             </button>
         }

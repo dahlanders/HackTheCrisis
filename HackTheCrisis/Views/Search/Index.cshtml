@@ -19,6 +19,6 @@
         @(await Html.RenderComponentAsync<SearchListComponent>(RenderMode.ServerPrerendered, new { SearchResult = Model.NeedsTab.SearchResult, FilterOptions = Model.NeedsTab.FilterOptions }))
     </div>
     <div class="tab-pane" id="industrial" role="tabpanel" aria-labelledby="industrial-tab">
-        @(await Html.RenderComponentAsync<SearchListComponent>(RenderMode.ServerPrerendered, new { SearchResult = Model.OffersTab.SearchResult, FilterOptions = Model.NeedsTab.FilterOptions }))
+        @(await Html.RenderComponentAsync<SearchListComponent>(RenderMode.ServerPrerendered, new { SearchResult = Model.OffersTab.SearchResult, FilterOptions = Model.OffersTab.FilterOptions }))
     </div>
 </div>
