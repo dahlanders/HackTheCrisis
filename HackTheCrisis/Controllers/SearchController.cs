@@ -10,6 +10,8 @@ using HackTheCrisis.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using static HackTheCrisis.Models.Need;
+using static HackTheCrisis.Models.Offer;
 
 namespace HackTheCrisis.Controllers
 {
