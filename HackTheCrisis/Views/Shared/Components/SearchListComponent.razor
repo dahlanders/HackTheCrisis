@@ -3,31 +3,30 @@
 @using HackTheCrisis.Helpers;
 @using Microsoft.AspNetCore.Mvc.Rendering;
 
-@if (searchResult != null && searchResult.Any())
-{
-    @* Search term *@
-    <div class="row search-list">
-        <div class="row col-md-3 pull-right">
-            <input type="text" id="txtSearch" placeholder="What do you need?" class="form-control" @bind="SearchTerm" @bind:event="oninput" />
-        </div>
-        @* Filter *@
+
+@* Search term *@
+<div class="row search-list">
+    <div class="row col-md-3 pull-right">
+        <input type="text" id="txtSearch" placeholder="What do you need?" class="form-control" @bind="SearchTerm" @bind:event="oninput" />
+    </div>
+    @* Filter *@
+    @if (FilterOptions != null && FilterOptions.Any())
+    {
         <select id="filterSelect" class="form-control"
                 @onchange="Filter">
             <option selected="selected" value="-1">Please select</option>
-            @foreach (var opt in filterOptions)
+            @foreach (var opt in FilterOptions)
             {
                 <option value=@opt.Value>@opt.Text</option>
             }
         </select>
-        @*<select onchange=@DoStuff>
-                @foreach (var template in templates)
-                {
-                    <option value=@template>@template</option>
-                }
-            </select>*@
-
-
-        <div class="col-lg-12">
+    }
+    <div class="col-lg-12">
+        <span>@totalRecords results</span>
+    </div>
+    <div class="col-lg-12">
+        @if (searchResult != null && searchResult.Any())
+        {
             <table class="table" id="table">
                 <thead>
                     <tr>
@@ -55,32 +54,34 @@
                     }
                 </tbody>
             </table>
-
-            <hr>
-        </div>
-        @* Pagination *@
-        <div class="pagination">
-            <button class="btn btn-custom" @onclick=@(()=> NavigateToPage("previous"))>Prev</button>
-
-            @for (int i = startPage; i <= endPage; i++)
-            {
-                var currentPage = i;
-                <button class="btn btn-custom pagebutton @(currentPage==curPage?"btn-danger":"")" @onclick=@(()=> refreshRecords(currentPage))>
-                    @currentPage
-                </button>
-            }
-
-            <button class="btn btn-custom" @onclick=@(()=>  NavigateToPage("next"))>Next</button>
-
-        </div>
+        }
+        <hr>
     </div>
+    @* Pagination *@
+    <div class="pagination">
+        <button class="btn btn-custom" @onclick=@(()=> NavigateToPage("previous"))>Prev</button>
 
-}
+        @for (int i = startPage; i <= endPage; i++)
+        {
+            var currentPage = i;
+            <button class="btn btn-custom pagebutton @(currentPage==curPage?"btn-danger":"")" @onclick=@(()=> refreshRecords(currentPage))>
+                @currentPage
+            </button>
+        }
+
+        <button class="btn btn-custom" @onclick=@(()=>  NavigateToPage("next"))>Next</button>
+
+    </div>
+</div>
+
 <button class="btn btn-custom" @onclick="Close">X</button>
 
 @code {
     [Parameter]
-    public SearchListComponentModel ComponentModel { get; set; }
+    public IEnumerable<SearchResultViewModel> SearchResult { get; set; }
+
+    [Parameter]
+    public IEnumerable<SelectListItem> FilterOptions { get; set; }
 
     IEnumerable<SearchResultViewModel> searchResult;
 
@@ -93,7 +94,6 @@
         set { searchTerm = value; FilterRecords(); }
     }
 
-    private SelectList filterOptions;
 
     #region Pagination
 
@@ -112,22 +112,7 @@
 
     protected override void OnInitialized()
     {
-        searchHelper = new SearchHelper(ComponentModel.SearchResult);
-        //var needEnums = Enum.GetValues(typeof(NeedType)).Cast<NeedType>();
-        //var offerEnums = Enum.GetValues(typeof(OfferType)).Cast<OfferType>();
-
-        //var selectListItems = new List<SelectListItem>();
-        //foreach (var item in needEnums)
-        //{
-        //    selectListItems.Add(new SelectListItem { Selected = false, Text = item.ToString(), Value = ((int)item).ToString() });
-        //}
-        //foreach (var item in offerEnums)
-        //{
-        //    selectListItems.Add(new SelectListItem { Selected = false, Text = item.ToString(), Value = ((int)item).ToString() });
-        //}
-
-        //filterOptions = new SelectList(selectListItems, "Value", "Text");
-        filterOptions = ComponentModel.Filter;
+        searchHelper = new SearchHelper(SearchResult);
 
         SetInitialValues();
     }

@@ -9,6 +9,6 @@ namespace HackTheCrisis.Models.ViewModels
     public class SearchListComponentModel
     {
         public IEnumerable<SearchResultViewModel> SearchResult { get; set; }
-        public SelectList Filter { get; set; }
+        public IEnumerable<SelectListItem> FilterOptions { get; set; }
     }
 }

@@ -22,6 +22,9 @@ namespace HackTheCrisis.Helpers
 
         public SearchResult ListAllNeedsAndOffers(int skip = 0, int take = 0, string orderBy = "", string direction = "DESC", string search = "", int filterBy = -1)
         {
+            if (_searchResultViewModel == null)
+                return new SearchResult();
+
             //var listData = new List<SearchResultViewModel>();
 
             //// Populate the view model with needs

@@ -5,21 +5,20 @@
 
 @using HackTheCrisis.Views.Shared.Components
 @model SearchPageViewModel
+<ul class="nav nav-tabs" id="searchTab" role="tablist">
+        <li class="nav-item active">
+            <a class="nav-link active" id="health-care-tab" data-toggle="tab" href="#health-care" role="tab" aria-controls="health-care" aria-selected="true">Health Care needs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="industrial-tab" data-toggle="tab" href="#industrial" role="tab" aria-controls="industrial" aria-selected="false">Industrial offers</a>
+        </li>
+    </ul>
 
-@*<ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item active">
-        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-    </li>
-</ul>*@
-
-@*<div class="tab-content" id="myTabContent">*@
-    @*<div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">*@
-        @(await Html.RenderComponentAsync<SearchListComponent>(RenderMode.ServerPrerendered, new { ComponentModel = Model.NeedsTab }))
-    @*</div>*@
-                         @*<div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">*@
-                         @*@(await Html.RenderComponentAsync<SearchListComponent>(RenderMode.ServerPrerendered, new { SearchListComponentModel = Model.OffersTab }))*@
-                         @*</div>*@
-                         @*</div>*@
+<div class="tab-content" id="searchTabContent">
+    <div class="tab-pane active" id="health-care" role="tabpanel" aria-labelledby="health-care-tab">
+        @(await Html.RenderComponentAsync<SearchListComponent>(RenderMode.ServerPrerendered, new { SearchResult = Model.NeedsTab.SearchResult, FilterOptions = Model.NeedsTab.FilterOptions }))
+    </div>
+    <div class="tab-pane" id="industrial" role="tabpanel" aria-labelledby="industrial-tab">
+        @(await Html.RenderComponentAsync<SearchListComponent>(RenderMode.ServerPrerendered, new { SearchResult = Model.OffersTab.SearchResult, FilterOptions = Model.NeedsTab.FilterOptions }))
+    </div>
+</div>

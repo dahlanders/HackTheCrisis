@@ -48,12 +48,12 @@ namespace HackTheCrisis.Controllers
                 NeedsTab = new SearchListComponentModel
                 {
                     SearchResult = needsViewData,
-                    Filter = new SelectList(needsFilter, "Value", "Text")
+                    FilterOptions = needsFilter
                 },
                 OffersTab = new SearchListComponentModel
                 {
                     SearchResult = offersViewData,
-                    Filter = new SelectList(offersFilter, "Value", "Text")
+                    FilterOptions = offersFilter
                 }
             };
 

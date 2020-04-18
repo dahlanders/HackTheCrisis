@@ -35,8 +35,13 @@ namespace HackTheCrisis.Controllers
             var viewDataOffers = modelBuilder.OffersViewModel();
 
             var searchResultViewModel = new List<SearchResultViewModel>();
+
+            // Combine both needs and offers
             searchResultViewModel.AddRange(viewDataNeeds);
             searchResultViewModel.AddRange(viewDataOffers);
+
+            // Only show a cuple of hits on the start page
+            searchResultViewModel = searchResultViewModel.Take(START_PAGE_LIST_COUNT).ToList();
 
             return View(searchResultViewModel);
         }
