@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HackTheCrisis.Models
+namespace HackTheCrisis.Models.ViewModels
 {
     public class SearchResultViewModel
     {
@@ -15,5 +15,6 @@ namespace HackTheCrisis.Models
         public DateTime DeliveryDate { get; set; }
         public DateTime SubmittedDate { get; set; }
         public HelpType HelpType { get; set; }
+        public int CategoryId { get; set; } // TODO: Gör om till en enum eller spara kategorierna på något annat sätt?
     }
 }

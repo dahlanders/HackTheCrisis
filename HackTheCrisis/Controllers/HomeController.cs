@@ -9,6 +9,8 @@ using HackTheCrisis.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using HackTheCrisis.Helpers;
+using HackTheCrisis.Repositories;
+using HackTheCrisis.Models.ViewModels;
 
 namespace HackTheCrisis.Controllers
 {
@@ -27,8 +29,19 @@ namespace HackTheCrisis.Controllers
 
         public IActionResult Index()
         {
-            var searchHelper = new SearchHelper(_context);
-            var searchResultViewModel = searchHelper.ListAllNeedsAndOffers(skip: 0, take: START_PAGE_LIST_COUNT).Result;
+            var modelBuilder = new SearchModelBuilder(_context);
+
+            var viewDataNeeds = modelBuilder.NeedsViewModel();
+            var viewDataOffers = modelBuilder.OffersViewModel();
+
+            var searchResultViewModel = new List<SearchResultViewModel>();
+
+            // Combine both needs and offers
+            searchResultViewModel.AddRange(viewDataNeeds);
+            searchResultViewModel.AddRange(viewDataOffers);
+
+            // Only show a cuple of hits on the start page
+            searchResultViewModel = searchResultViewModel.Take(START_PAGE_LIST_COUNT).ToList();
 
             return View(searchResultViewModel);
         }

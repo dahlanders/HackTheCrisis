@@ -7,7 +7,7 @@ namespace HackTheCrisis.Models
 {
     public enum HelpType
     {
-        Needs,
-        Offer
+        Needs = 1,
+        Offer = 2
     }
 }

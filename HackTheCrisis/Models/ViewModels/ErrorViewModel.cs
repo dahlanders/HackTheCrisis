@@ -1,6 +1,6 @@
 using System;
 
-namespace HackTheCrisis.Models
+namespace HackTheCrisis.Models.ViewModels
 {
     public class ErrorViewModel
     {
