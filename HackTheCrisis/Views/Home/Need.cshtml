@@ -1,46 +1,46 @@
 ﻿@model HackTheCrisis.Models.Need
 
 @{
-    ViewData["Title"] = "Need";
+    ViewData["Title"] = "Behov";
 }
 
-<h2>Submit Health Care need​</h2>
+<h2>Skicka in behov från hälso- och sjukvård</h2>
 
-<h4>Enter the medical supplies you need to find a supplier for, how much and when it is needed.​</h4>
+<h4>Ange de medicinska tillbehör du behöver för att hitta en leverantör till, hur mycket och när det behövs.</h4>
 
 <div class="d-flex justify-content-center">
-    <label asp-for="Owner"><strong>Deliver To..</strong></label>
+    <label asp-for="Owner"><strong>Leverera till..</strong></label>
     <input asp-for="Owner" Id="tapWaterValue" InputType="InputType.Select" class="form-control col-md-2" />
-    <p>Can’t find your unit? Register a new Health Care Unit​</p>
+    <p>Kan du inte hitta din organisationsenhet? Registrera en ny organisationsenhet</p>
 
 </div>
 <form class="form">
     <div class="form-row">
         <div class="form-group col-md-4">
-            <label asp-for="EnumNeedType">What do you need?</label>
+            <label asp-for="EnumNeedType">Vad behover ni?</label>
             <select id="inputCity" asp-for="EnumNeedType" class="form-control">
-                <option selected>Choose...</option>
+                <option selected>Välj...</option>
                 <option>...</option>
             </select>
         </div>
         <div class="form-group col-md-4">
-            <label asp-for="Quantity">Quantity</label>
+            <label asp-for="Quantity">Kvantitet</label>
             <input type="text" class="form-control" asp-for="Quantity" id="inputState">
         </div>
         <div class="form-group col-md-2">
-            <label asp-for="QuantityUnit">Unit</label>
+            <label asp-for="QuantityUnit">Enhet</label>
             <input type="text" class="form-control" asp-for="QuantityUnit" id="inputZip">
         </div>
         <div class="form-group col-md-2">
-            <label asp-for="DeliveryDate">When needed?​</label>
+            <label asp-for="DeliveryDate">När behövs det?​</label>
             <input type="datetime" class="form-control" asp-for="DeliveryDate" id="inputZip">
         </div>
     </div>
     <div class="form-group">
-        <label asp-for="Description">Description​</label>
+        <label asp-for="Description">Beskrivning</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" asp-for="Description" rows="3"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    <button type="submit" class="btn btn-primary mb-2">Skicka in</button>
 </form>
 
 @{
