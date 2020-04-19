@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Startsida";
 }
 @model IEnumerable<SearchResultViewModel>
 
@@ -13,9 +13,9 @@
             <img src="~/images/JumbotronIndustrial.png" alt="An empty industrial building with machines." class="img-responsive" />
             <div class="carousel-caption" role="option">
                 <p>
-                    <h2>Do you have available resources for production, transport, logistics or storage?</h2>
+                    <h2>Har du resurser tillgängliga för produktion, transport eller lager?</h2>
                     <a class="btn btn-orange" href="/">
-                        Yes, we can supply
+                        Ja, vi kan bidra!
                     </a>
                 </p>
             </div>
@@ -25,9 +25,9 @@
             <img src="~/images/JumbotroHealthCare.png" alt="Health care professionals wearing facial masks in an operation room." class="img-responsive" />
             <div class="carousel-caption" role="option">
                 <p>
-                    <h2>Are you running out of medical equipment or supplies?</h2>
+                    <h2>Har ni brist på medicinsk utrustning eller andra resurser?</h2>
                     <a class="btn btn-orange" href="/">
-                        Yes, find suppliers
+                        Ja, vill leta bland leverantörerna
                     </a>
                 </p>
             </div>
@@ -35,35 +35,34 @@
     </div>
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
+        <span class="sr-only">Föregående</span>
     </a>
     <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
+        <span class="sr-only">Nästa</span>
     </a>
 </div>
 
 <div class="row introduction">
     <p>
         <span class="introduction-important">
-            The Corona crisis has left health care scrambling for resources
+            Corona-krisen har gett hälso- och sjukvården bekymmer med medicinsk utrustning
             <br />
-            while industrial production has stalled.
+            samtidigt har industriell produktion stannat av.
         </span>
         <br />
         <br />
-        With production resources repurposed to meet
-        the short term life-saving needs of the health care sector – we have a win-win.
+        Genom att låta producerande verksamheter ställa om till mer kortsiktiga och livsuppehållande behov hålls både industrin igång samtidigt som det räddar liv. Ett win-win-scenario.
     </p>
 </div>
 
 <div class="row">
     <div class="col-md-6 homepage-col">
-        <h3>Watch the introduction</h3>
+        <h3>Se introduktionsfilmen</h3>
         <iframe class="responsive-video" frameborder="0" width="560" height="315" src="https://biteable.com/watch/embed/industrial-remix-to-save-lives-2496984"></iframe>
     </div>
     <div class="col-md-6 homepage-col">
-        <h3>Recently added</h3>
+        <h3>Nyligen tillagda</h3>
         <partial name="~/Views/Search/_RecentlyAddedPartial.cshtml" for="@Model">
     </div>
 </div>
