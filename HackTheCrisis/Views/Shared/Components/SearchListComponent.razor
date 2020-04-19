@@ -15,7 +15,7 @@
         {
             <select id="filterSelect" class="form-control"
                     @onchange="Filter">
-                <option selected="selected" value="-1">Category...</option>
+                <option selected="selected" value="-1">Kategori...</option>
                 @foreach (var opt in FilterOptions)
                 {
                     <option value=@opt.Value>@opt.Text</option>
@@ -24,7 +24,7 @@
         }
     </div>
     <div class="search-result-count">
-        <span>@totalRecords results</span>
+        <span>@totalRecords träffar</span>
     </div>
     <div>
         @if (searchResult != null && searchResult.Any())
@@ -32,11 +32,11 @@
             <table class="table" id="table">
                 <thead>
                     <tr>
-                        <th>Who?</th>
-                        <th>Supply/Needs</th>
-                        <th>How much?</th>
-                        <th>Where?</th>
-                        <th>When?</th>
+                        <th>Vem?</th>
+                        <th>Erbjudande/behov</th>
+                        <th>Mängd?</th>
+                        <th>Var?</th>
+                        <th>När?</th>
                     </tr>
                 </thead>
                 <tbody>
