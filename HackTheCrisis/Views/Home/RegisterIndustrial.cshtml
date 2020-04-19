@@ -1,50 +1,50 @@
 ﻿@model HackTheCrisis.Models.IndustrialPartner
 @{
-    ViewData["Title"] = "RegisterIndustrial";
+    ViewData["Title"] = "Registrera som industriell partner";
 }
 
-<h2>Register Industrial partner​​</h2>
+<h2>Registrera som industriell partner</h2>
 
-<h4>Register your business so that you can be contacted by Health Care Units in need.​​​</h4>
+<h4>Registrera ditt företag så ni kan bli kontaktade av organisationer inom omsorg, hälso- och sjukvård.​</h4>
 
 <div class="form">
     <div class="form-group">
-        <label>Corporate identity number (organisationsnummer)​​</label>
+        <label>Organisationsnummer​​</label>
         <select id="inputCity" class="form-control">
-            <option selected>Choose...</option>
+            <option selected>Välj...</option>
             <option>...</option>
         </select>
-        <p>Not a business? Helpamed is a service where individuals can register to help out in the current crisis.</p>
+        <p>Inte ett företag? Kolla in <a href="https://www.facebook.com/groups/494650038080423/">Sjukvårdshjälpen på Facebook</a></p>
     </div>
     <div class="form-group">
-        <label>Company name</label>
+        <label>Företagsnamn</label>
         <input type="text" class="form-control">
     </div>
     <div class="form-group">
-        <label for="inputContactPerson">Contact person​</label>
+        <label for="inputContactPerson">Kontaktperson​</label>
         <input type="text" class="form-control" id="inputContactPerson">
     </div>
     <div class="form-group">
-        <label for="inputEmail">E-mail​​</label>
+        <label for="inputEmail">Epost</label>
         <input type="text" class="form-control" id="inputEmail">
     </div>
     <div class="form-group">
-        <label>Phone​​</label>
+        <label>Telefonnummer</label>
         <input type="text" class="form-control" id="inputZip">
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="inputAddress">Address</label>
+            <label for="inputAddress">Adress</label>
             <input type="text" class="form-control" id="inputAddress">
         </div>
         <div class="form-group col-md-4">
-            <label for="inputZip">Zipcode</label>
+            <label for="inputZip">Postnummer</label>
             <input type="text" class="form-control" id="inputZip">
         </div>
         <div class="form-group col-md-2">
-            <label for="inputCity">City​​</label>
+            <label for="inputCity">Ort</label>
             <input type="datetime" class="form-control" id="inputCity">
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="submit" class="btn btn-primary">Registrera</button>
 </div>
