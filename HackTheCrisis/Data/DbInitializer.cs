@@ -23,11 +23,11 @@ namespace HackTheCrisis.Data
 
             var molnlyckeHealthCareUnit = new HealthCareUnit()
             {
-                UnitName = "Mölnlycke vårdcentral",
+                UnitName = "Ortens vårdcentral",
                 UnitType = HeltCareUnitType.Hospital,
-                StreetAddress = "Ekdalavägen 2 Närhälsan Mölnlycke Vårdcentral",
+                StreetAddress = "Ekdalavägen 2",
                 PostalCode = 43530,
-                City = "Mölnlycke",
+                City = "Lillorten",
                 Email = "test@vgregion.se",
                 ContactPerson = "Oscar Andersson",
                 PhoneNumber = 0104733610
@@ -35,11 +35,11 @@ namespace HackTheCrisis.Data
 
             var ostraHealthCareUnit = new HealthCareUnit()
             {
-                UnitName = "Östra sjukhuset",
+                UnitName = "Västra sjukhuset",
                 UnitType = HeltCareUnitType.Hospital,
-                StreetAddress = "Sahlgrenska Universitetssjukhuset Östra sjukhuset",
+                StreetAddress = "Grå stråket",
                 PostalCode = 41685,
-                City = "Göteborg",
+                City = "Småstad",
                 Email = "test@vgregion.se",
                 ContactPerson = "Livia Hirst",
                 PhoneNumber = 0313421000
@@ -47,9 +47,9 @@ namespace HackTheCrisis.Data
 
             var sasHealthCareUnit = new HealthCareUnit()
             {
-                UnitName = "Södra Älvsborgs Sjukhus",
+                UnitName = "Sjukhuset 1",
                 UnitType = HeltCareUnitType.Hospital,
-                StreetAddress = "Brämhultsvägen 53 Södra Älvsborgs Sjukhus",
+                StreetAddress = "Brämhultsvägen 53",
                 PostalCode = 50182,
                 City = "Borås",
                 Email = "test@vgregion.se",
@@ -63,7 +63,7 @@ namespace HackTheCrisis.Data
 
             var volvoIndustrialPartner = new IndustrialPartner()
             {
-                CompanyName = "Volvo trucks",
+                CompanyName = "Trucktillverkaren",
                 CorporateIdentityNumber = "123456789123",
                 StreetAddress = "Gropegårdsgatan 2",
                 PostalCode = 41715,
