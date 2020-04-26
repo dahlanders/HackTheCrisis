@@ -130,7 +130,7 @@ namespace HackTheCrisis.Data
                 //SubmittedDate = DateTime.Now.AddDays(-10),
                 Description = "Visir",
                 OfferTypes = OfferType.ComponentProduction,
-                Type = IndustrialPartnerType.ManufacturingIndustry,
+                //Type = IndustrialPartnerType.ManufacturingIndustry,
                 Owner = volvoIndustrialPartner
             };
 
@@ -139,7 +139,7 @@ namespace HackTheCrisis.Data
                 //SubmittedDate = DateTime.Now.AddDays(-10),
                 Description = "Godstransport",
                 OfferTypes = OfferType.TransportLogistics,
-                Type = IndustrialPartnerType.LogisticsAndTransport,
+                //Type = IndustrialPartnerType.LogisticsAndTransport,
                 Owner = fraktbolagetIndustrialPartner
             };
 

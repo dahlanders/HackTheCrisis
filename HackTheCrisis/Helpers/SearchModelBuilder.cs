@@ -18,53 +18,53 @@ namespace HackTheCrisis.Helpers
             _searchRepository = new SearchRepository(context);
         }
 
-        public IEnumerable<SearchResultViewModel> NeedsViewModel()
-        {
-            var allNeeds = _searchRepository.GetAllNeeds();
-            var viewDataNeeds = new List<SearchResultViewModel>();
+        //public IEnumerable<SearchResultViewModel> NeedsViewModel()
+        //{
+        //    var allNeeds = _searchRepository.GetAllNeeds();
+        //    var viewDataNeeds = new List<SearchResultViewModel>();
 
-            // Populate the view model with needs
-            foreach (var need in allNeeds)
-            {
-                viewDataNeeds.Add(
-                    new SearchResultViewModel()
-                    {
-                        Organization = need.Owner.UnitName,
-                        Item = need.Description,
-                        Quantity = need.Quantity,
-                        QuantityUnit = need.QuantityUnit,
-                        Location = need.Owner.City,
-                        DeliveryDate = need.DeliveryDate,
-                        SubmittedDate = DateTime.Now,//need.SubmittedDate, TODO: Ta tillbaka SubmittedDate
-                        HelpType = HelpType.Needs,
-                        CategoryId = (int)need.EnumNeedType
-                    });
-            }
-            return viewDataNeeds;
-        }
+        //    // Populate the view model with needs
+        //    foreach (var need in allNeeds)
+        //    {
+        //        viewDataNeeds.Add(
+        //            new SearchResultViewModel()
+        //            {
+        //                Organization = need.Owner.UnitName,
+        //                Item = need.Description,
+        //                Quantity = need.Quantity,
+        //                QuantityUnit = need.QuantityUnit,
+        //                Location = need.Owner.City,
+        //                DeliveryDate = need.DeliveryDate,
+        //                SubmittedDate = DateTime.Now,//need.SubmittedDate, TODO: Ta tillbaka SubmittedDate
+        //                HelpType = HelpType.Needs,
+        //                CategoryId = (int)need.EnumNeedType
+        //            });
+        //    }
+        //    return viewDataNeeds;
+        //}
 
-        public IEnumerable<SearchResultViewModel> OffersViewModel()
-        {
-            var allOffers = _searchRepository.GetAllOffers();
-            var viewDataOffers = new List<SearchResultViewModel>();
+        //public IEnumerable<SearchResultViewModel> OffersViewModel()
+        //{
+        //    var allOffers = _searchRepository.GetAllOffers();
+        //    var viewDataOffers = new List<SearchResultViewModel>();
 
-            // Populate the view model with offers
-            foreach (var offer in allOffers)
-            {
-                viewDataOffers.Add(
-                    new SearchResultViewModel()
-                    {
-                        Organization = offer.Owner.CompanyName,
-                        Item = offer.Description,
-                        Quantity = 0,
-                        QuantityUnit = "",
-                        Location = offer.Owner.City,
-                        SubmittedDate = DateTime.Now,//offer.SubmittedDate, TODO: Ta tillbaka SubmittedDate
-                        HelpType = HelpType.Offer,
-                        CategoryId = (int)offer.OfferTypes
-                    });
-            }
-            return viewDataOffers;
-        }
+        //    // Populate the view model with offers
+        //    foreach (var offer in allOffers)
+        //    {
+        //        viewDataOffers.Add(
+        //            new SearchResultViewModel()
+        //            {
+        //                Organization = offer.Owner.CompanyName,
+        //                Item = offer.Description,
+        //                Quantity = 0,
+        //                QuantityUnit = "",
+        //                Location = offer.Owner.City,
+        //                SubmittedDate = DateTime.Now,//offer.SubmittedDate, TODO: Ta tillbaka SubmittedDate
+        //                HelpType = HelpType.Offer,
+        //                CategoryId = (int)offer.OfferTypes
+        //            });
+        //    }
+        //    return viewDataOffers;
+        //}
     }
 }

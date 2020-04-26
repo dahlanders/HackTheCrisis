@@ -7,49 +7,68 @@
 
 <h4>Registrera din organisation så ni kan bli kontaktade av potentiella industripartners.</h4>
 
-<div class="form">
+<div class="row">
     <div class="form-group">
-        <label asp-for="UnitType">Organisationstyp</label>
-        <select asp-for="UnitType" class="form-control">
-            <option selected>Välj...</option>
-            <option>...</option>
-        </select>
+        <form asp-controller="Home" asp-action="RegisterHealtcareUnit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UnitType" class="control-label">Organisationstyp</label>
+                <select asp-for="UnitType" asp-items="Html.GetEnumSelectList<HealthCareUnit.HeltCareUnitType>()" class="form-control"></select>
+                <span asp-validation-for="UnitType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UnitName" class="control-label">Organisationsnamn</label>
+                <input asp-for="UnitName" class="form-control" />
+                <span asp-validation-for="UnitName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactPerson" class="control-label">Kontaktperson</label>
+                <input asp-for="ContactPerson" class="form-control" />
+                <span asp-validation-for="ContactPerson" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Epost</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label">Telefonnummer</label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="StreetAddress" class="control-label">Adress</label>
+                    <input asp-for="StreetAddress" class="form-control" />
+                    <span asp-validation-for="StreetAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="PostalCode" class="control-label">Postnummer</label>
+                    <input asp-for="PostalCode" class="form-control" />
+                    <span asp-validation-for="PostalCode" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    <label asp-for="City" class="control-label">Ort</label>
+                    <input asp-for="City" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label"></label>
+                <input type="hidden" asp-for="Latitude" class="form-control" />
+                <span asp-validation-for="Latitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label"></label>
+                <input type="hidden" asp-for="Longitude" class="form-control" />
+                <span asp-validation-for="Longitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Registrera</button>
+            </div>
+        </form>
     </div>
-
-    @*<select asp-for="UnitType" asp-items="Html.GetEnumSelectList<HealthCareUnit.HeltCareUnitType>()">
-        <option selected="selected" value="">Please select</option>
-    </select>*@
-
-    <div class="form-group">
-        <label asp-for="UnitName">Organisationsnamn</label>
-        <input asp-for="UnitName" type="text" class="form-control">
-    </div>
-    <div class="form-group">
-        <label asp-for="ContactPerson">Kontaktperson​</label>
-        <input asp-for="ContactPerson" type="text" class="form-control" id="inputContactPerson">
-    </div>
-    <div class="form-group">
-        <label asp-for="Email" for="inputEmail">Epost</label>
-        <input asp-for="Email" type="text" class="form-control" id="inputEmail">
-    </div>
-    <div class="form-group">
-        <label asp-for="PhoneNumber">Telefonnummer</label>
-        <input asp-for="PhoneNumber" type="text" class="form-control" id="inputZip">
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label asp-for="StreetAddress" for="inputAddress">Adress</label>
-            <input asp-for="StreetAddress" type="text" class="form-control" id="inputAddress">
-        </div>
-        <div class="form-group col-md-4">
-            <label asp-for="PostalCode" for="inputZip">Postnummer</label>
-            <input asp-for="PostalCode" type="text" class="form-control" id="inputZip">
-        </div>
-        <div class="form-group col-md-2">
-            <label asp-for="City" for="inputCity">Ort</label>
-            <input asp-for="City" type="datetime" class="form-control" id="inputCity">
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Registrera</button>
 </div>
+
 

@@ -7,40 +7,50 @@
 
 <h4>Skriv in de resurser eller tjänster du kan erbjuda.​</h4>
 
-<div class="d-flex justify-content-center">
-    <label asp-for="Owner"><strong>Industriell partner​</strong></label>
-    <input asp-for="Owner" Id="tapWaterValue" InputType="InputType.Select" class="form-control col-md-2" />
-    <p>Kan du inte hitta ditt företag? Registrera en ny industriell partner</p>
+<div class="row">
+    <div class="col-md-4">
+        <form  asp-controller="Home"  asp-action="Offer" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="OfferTypes" class="control-label"></label>
+                    <select asp-for="OfferTypes" asp-items="Html.GetEnumSelectList<Offer.OfferType>()" class="form-control"></select>
+                    <span asp-validation-for="OfferTypes" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Quantity" class="control-label"></label>
+                    <input asp-for="Quantity" class="form-control" />
+                    <span asp-validation-for="Quantity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="QuantityUnit" class="control-label"></label>
+                    <input asp-for="QuantityUnit" class="form-control" />
+                    <span asp-validation-for="QuantityUnit" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DeliveryDate" class="control-label"></label>
+                    <input asp-for="DeliveryDate" class="form-control" />
+                    <span asp-validation-for="DeliveryDate" class="text-danger"></span>
+                </div>
 
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="OfferStatus" class="control-label"></label>
+                <select asp-for="OfferStatus" asp-items="Html.GetEnumSelectList<Offer.EnumOfferStatus>()" class="form-control"></select>
+                <span asp-validation-for="OfferStatus" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Spara</button>
+            </div>
+        </form>
+    </div>
 </div>
-<form class="form">
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label asp-for="OfferTypes" >Vad kan du erbjuda?​</label>
-            <select id="inputCity"  asp-for="OfferTypes" class="form-control">
-                <option selected>Välj...</option>
-                <option>...</option>
-            </select>
-        </div>
-        <div class="form-group col-md-4">
-            <label asp-for="Quantity" >Kvantitet</label>
-            <input asp-for="Quantity" type="text" class="form-control"  id="inputState">
-        </div>
-        <div class="form-group col-md-2">
-            <label asp-for="QuantityUnit" >Enhet</label>
-            <input  asp-for="QuantityUnit" type="text" class="form-control"  id="inputZip">
-        </div>
-        <div class="form-group col-md-2">
-            <label asp-for="DeliveryDate" >Leveransdatum​​</label>
-            <input  asp-for="DeliveryDate" type="datetime" class="form-control" id="inputZip">
-        </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="Description">Beskrivning</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" asp-for="Description" rows="3"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary mb-2">Skicka in</button>
-</form>
 
 @{
 }

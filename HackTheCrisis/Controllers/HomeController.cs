@@ -31,14 +31,14 @@ namespace HackTheCrisis.Controllers
         {
             var modelBuilder = new SearchModelBuilder(_context);
 
-            var viewDataNeeds = modelBuilder.NeedsViewModel();
-            var viewDataOffers = modelBuilder.OffersViewModel();
+            //var viewDataNeeds = modelBuilder.NeedsViewModel();
+            //var viewDataOffers = modelBuilder.OffersViewModel();
 
             var searchResultViewModel = new List<SearchResultViewModel>();
 
             // Combine both needs and offers
-            searchResultViewModel.AddRange(viewDataNeeds);
-            searchResultViewModel.AddRange(viewDataOffers);
+            //searchResultViewModel.AddRange(viewDataNeeds);
+            //searchResultViewModel.AddRange(viewDataOffers);
 
             // Only show a cuple of hits on the start page
             searchResultViewModel = searchResultViewModel.Take(START_PAGE_LIST_COUNT).ToList();
@@ -87,6 +87,35 @@ namespace HackTheCrisis.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Need(Need need)
+        {
+            _context.Needs.Add(need);
+            _context.SaveChanges();
+            return View("Index");
+        }
+        public IActionResult Offer()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Offer(Offer offer)
+        {
+            _context.Offers.Add(offer);
+            _context.SaveChanges();
+            return View("Index");
+        }
+        public IActionResult RegisterHealtcareUnit()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult RegisterHealtcareUnit(HealthCareUnit healthCareUnit)
+        {
+            _context.HealthCareUnits.Add(healthCareUnit);
+            _context.SaveChanges();
+            return View("Index");
+        }
         public IActionResult Register()
         {
             return View();
@@ -98,6 +127,13 @@ namespace HackTheCrisis.Controllers
         public IActionResult RegisterIndustrial()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult RegisterIndustrial(IndustrialPartner industrialPartner)
+        {
+            _context.IndustrialPartners.Add(industrialPartner);
+            _context.SaveChanges();
+            return View("Index");
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

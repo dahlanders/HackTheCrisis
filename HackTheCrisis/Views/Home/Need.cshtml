@@ -1,5 +1,4 @@
 ﻿@model HackTheCrisis.Models.Need
-
 @{
     ViewData["Title"] = "Behov";
 }
@@ -8,40 +7,58 @@
 
 <h4>Ange de medicinska tillbehör du behöver för att hitta en leverantör till, hur mycket och när det behövs.</h4>
 
-<div class="d-flex justify-content-center">
-    <label asp-for="Owner"><strong>Leverera till..</strong></label>
-    <input asp-for="Owner" Id="tapWaterValue" InputType="InputType.Select" class="form-control col-md-2" />
-    <p>Kan du inte hitta din organisationsenhet? Registrera en ny organisationsenhet</p>
+<div class="form-group">
+    <form asp-controller="Home" asp-action="Need" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="control-label">Vad behöver du?</label>
+                <select asp-for="EnumNeedType" asp-items="Html.GetEnumSelectList<Need.NeedType>()" class="form-control"></select>
+                <span asp-validation-for="EnumNeedType" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-2">
+                <label class="control-label">Mängd</label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-2">
+                <label class="control-label">Mängd enhet</label>
+                <input asp-for="QuantityUnit" class="form-control" />
+                <span asp-validation-for="QuantityUnit" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-2">
+                <label class="control-label">Leverans datum</label>
+                <input asp-for="DeliveryDate" class="form-control" />
+                <span asp-validation-for="DeliveryDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group">
+                <label class="control-label">Förklaring</label>
+                <input type="hidden"  class="form-control" />
+                <textarea asp-for="Description" class="form-control" rows="5" id="comment"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="NeesStatus" class="control-label">Status</label>
+                <select asp-for="NeesStatus" asp-items="Html.GetEnumSelectList<Need.EnumNeesStatus>()" class="form-control"></select>
+                <span asp-validation-for="NeesStatus" class="text-danger"></span>
+            </div>
+            <br />
+            <br />
+            <br />
+            <button type="submit" class="btn btn-primary btn-block">Spara</button>
 
+        </div>
+        
+        <div class="form-group col-md-6" >
+            <label class="control-label"></label>
+            <input type="hidden" asp-for="SubmittedDate" class="form-control" readonly />
+            @*<span asp-validation-for="SubmittedDate" class="text-danger"></span>*@
+        </div>
+    </form>
 </div>
-<form class="form">
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label asp-for="EnumNeedType">Vad behover ni?</label>
-            <select id="inputCity" asp-for="EnumNeedType" class="form-control">
-                <option selected>Välj...</option>
-                <option>...</option>
-            </select>
-        </div>
-        <div class="form-group col-md-4">
-            <label asp-for="Quantity">Kvantitet</label>
-            <input type="text" class="form-control" asp-for="Quantity" id="inputState">
-        </div>
-        <div class="form-group col-md-2">
-            <label asp-for="QuantityUnit">Enhet</label>
-            <input type="text" class="form-control" asp-for="QuantityUnit" id="inputZip">
-        </div>
-        <div class="form-group col-md-2">
-            <label asp-for="DeliveryDate">När behövs det?​</label>
-            <input type="datetime" class="form-control" asp-for="DeliveryDate" id="inputZip">
-        </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="Description">Beskrivning</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" asp-for="Description" rows="3"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary mb-2">Skicka in</button>
-</form>
+
 
 @{
 }

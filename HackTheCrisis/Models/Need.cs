@@ -15,6 +15,8 @@ namespace HackTheCrisis.Models
         [Range(0, 10000, ErrorMessage = "Du har angiviet ett högt värde")]
         public float Quantity { get; set; }
         public string QuantityUnit { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DeliveryDate { get; set; }
         public HealthCareUnit Owner { get; set; }     
         public DateTime SubmittedDate { get; set; }
