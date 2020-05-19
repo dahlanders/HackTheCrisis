@@ -20,6 +20,9 @@ namespace HackTheCrisis.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DeliveryDate { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime SubmittedDate { get; set; }
         public enum EnumOfferStatus
         {
             Overifierat,
@@ -44,6 +47,5 @@ namespace HackTheCrisis.Models
             LogisticsAndTransport,
             Warehouse,
         }
-
     }
 }

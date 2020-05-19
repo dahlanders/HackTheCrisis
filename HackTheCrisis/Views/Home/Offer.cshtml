@@ -13,34 +13,34 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-row">
                 <div class="form-group">
-                    <label asp-for="OfferTypes" class="control-label"></label>
+                    <label class="control-label">Vad erbjuder ni?</label>
                     <select asp-for="OfferTypes" asp-items="Html.GetEnumSelectList<Offer.OfferType>()" class="form-control"></select>
                     <span asp-validation-for="OfferTypes" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Quantity" class="control-label"></label>
+                    <label class="control-label">Mängd</label>
                     <input asp-for="Quantity" class="form-control" />
                     <span asp-validation-for="Quantity" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="QuantityUnit" class="control-label"></label>
+                    <label class="control-label">Mängd enhet</label>
                     <input asp-for="QuantityUnit" class="form-control" />
                     <span asp-validation-for="QuantityUnit" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="DeliveryDate" class="control-label"></label>
+                    <label class="control-label">Leverans datum</label>
                     <input asp-for="DeliveryDate" class="form-control" />
                     <span asp-validation-for="DeliveryDate" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Description" class="control-label"></label>
+                    <label class="control-label">Förklaring</label>
                     <input asp-for="Description" class="form-control" />
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group">
-                <label asp-for="OfferStatus" class="control-label"></label>
+                <label class="control-label">Status</label>
                 <select asp-for="OfferStatus" asp-items="Html.GetEnumSelectList<Offer.EnumOfferStatus>()" class="form-control"></select>
                 <span asp-validation-for="OfferStatus" class="text-danger"></span>
             </div>

@@ -4,12 +4,12 @@
 @using Microsoft.AspNetCore.Mvc.Rendering;
 
 
-@* Search term *@
+ Search term 
 <div class="search-list">
     <div class="search-field">
         <input type="text" id="txtSearch" placeholder="What do you need?" class="form-control" @bind="SearchTerm" @bind:event="oninput" />
     </div>
-    @* Filter *@
+     Filter 
     <div class="filter">
         @if (FilterOptions != null && FilterOptions.Any())
         {
@@ -93,7 +93,6 @@
         get { return searchTerm; }
         set { searchTerm = value; FilterRecords(); }
     }
-
 
     #region Pagination
 
