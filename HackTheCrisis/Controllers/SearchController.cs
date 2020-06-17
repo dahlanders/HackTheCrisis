@@ -29,8 +29,8 @@ namespace HackTheCrisis.Controllers
         {
             var modelBuilder = new SearchModelBuilder(_context);
 
-            //var needsViewData = modelBuilder.NeedsViewModel();
-            //var offersViewData = modelBuilder.OffersViewModel();
+            var needsViewData = modelBuilder.NeedsViewModel();
+            var offersViewData = modelBuilder.OffersViewModel();
 
 
             var needEnums = Enum.GetValues(typeof(NeedType)).Cast<NeedType>();
@@ -49,12 +49,12 @@ namespace HackTheCrisis.Controllers
             {
                 NeedsTab = new SearchListComponentModel
                 {
-                    //SearchResult = needsViewData,
+                    SearchResult = needsViewData,
                     FilterOptions = needsFilter
                 },
                 OffersTab = new SearchListComponentModel
                 {
-                    //SearchResult = offersViewData,
+                    SearchResult = offersViewData,
                     FilterOptions = offersFilter
                 }
             };
